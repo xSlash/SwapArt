@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SwapartMockup</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_signup">signupActivity</string>
+    <string name="title_activity_terms_conditions">TermsConditionsActivity</string>
+    <string name="title_activity_gallery">GalleryActivity</string>
+    <string name="title_activity_add_art_menu">AddArtMenuActivity</string>
+    <string name="title_activity_edit_art">EditArtActivity</string>
+    <string name="title_activity_search_art">SearchArtActivity</string>
+
+</resources>
