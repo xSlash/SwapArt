@@ -1,40 +1,46 @@
-package swapart.martin.swapartmockup;
+package swapart.martin.swapart;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import swapart.martin.swapartmockup.R;
 
-public class signupActivity extends Activity {
+
+public class GalleryActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
-        findViewById(R.id.checkBox).setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_gallery);
+        findViewById(R.id.imageView3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signupActivity.this.startActivity(new Intent(signupActivity.this, TermsConditionsActivity.class));
+                GalleryActivity.this.startActivity(new Intent(GalleryActivity.this, AddArtMenuActivity.class));
             }
         });
-        findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.button4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signupActivity.this.startActivity(new Intent(signupActivity.this, GalleryActivity.class));
+                GalleryActivity.this.startActivity(new Intent(GalleryActivity.this, EditArtActivity.class));
+            }
+        });
+        findViewById(R.id.button7).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GalleryActivity.this.startActivity(new Intent(GalleryActivity.this, SearchArtActivity.class));
             }
         });
     }
 
-    //First task will be here. Test GitHub changes
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_signup, menu);
+        getMenuInflater().inflate(R.menu.menu_gallery, menu);
         return true;
     }
 

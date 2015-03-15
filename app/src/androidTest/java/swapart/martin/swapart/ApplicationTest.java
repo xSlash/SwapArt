@@ -1,4 +1,4 @@
-package swapart.martin.swapartmockup;
+package swapart.martin.swapart;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

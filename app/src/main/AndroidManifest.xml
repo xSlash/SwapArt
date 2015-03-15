@@ -7,7 +7,7 @@
         android:icon="@drawable/ic_launcher"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="swapart.martin.swapart.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -15,26 +15,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".signupActivity" >
+        <activity android:name="swapart.martin.swapart.signupActivity" >
         </activity>
         <activity
-            android:name=".TermsConditionsActivity"
+            android:name="swapart.martin.swapart.TermsConditionsActivity"
             android:label="@string/title_activity_terms_conditions" >
         </activity>
         <activity
-            android:name=".GalleryActivity"
+            android:name="swapart.martin.swapart.GalleryActivity"
             android:label="@string/title_activity_gallery" >
         </activity>
         <activity
-            android:name=".AddArtMenuActivity"
+            android:name="swapart.martin.swapart.AddArtMenuActivity"
             android:label="@string/title_activity_add_art_menu" >
         </activity>
         <activity
-            android:name=".EditArtActivity"
+            android:name="swapart.martin.swapart.EditArtActivity"
             android:label="@string/title_activity_edit_art" >
         </activity>
         <activity
-            android:name=".SearchArtActivity"
+            android:name="swapart.martin.swapart.SearchArtActivity"
             android:label="@string/title_activity_search_art" >
         </activity>
     </application>

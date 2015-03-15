@@ -1,32 +1,26 @@
-package swapart.martin.swapartmockup;
+package swapart.martin.swapart;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+
+import swapart.martin.swapartmockup.R;
 
 
-public class EditArtActivity extends Activity {
+public class SearchArtActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_art);
-        findViewById(R.id.button11).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EditArtActivity.this.startActivity(new Intent(EditArtActivity.this, GalleryActivity.class));
-            }
-        });
+        setContentView(R.layout.activity_search_art);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_edit_art, menu);
+        getMenuInflater().inflate(R.menu.menu_search_art, menu);
         return true;
     }
 

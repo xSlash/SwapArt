@@ -1,4 +1,4 @@
-package swapart.martin.swapartmockup;
+package swapart.martin.swapart;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import swapart.martin.swapartmockup.R;
 
 
 public class AddArtMenuActivity extends Activity {
