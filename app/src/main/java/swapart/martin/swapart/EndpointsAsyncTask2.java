@@ -17,8 +17,9 @@ import swapart.martin.backend.myApi.MyApi;
 /**
  * Created by Martin on 21-03-2015.
  */
-class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+class EndpointsAsyncTask2 extends AsyncTask<Pair<Context, String>, Void, String> {
     private static MyApi myApiService = null;
+
     private Context context;
 
     @Override
@@ -47,6 +48,8 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 
         try {
             return myApiService.nameToX(name).execute().getData();
+
+            //return myApiService.sayHi(name).execute().getData();
         } catch (IOException e) {
             return e.getMessage();
         }
@@ -57,5 +60,6 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
         Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }
 }
+
 
 

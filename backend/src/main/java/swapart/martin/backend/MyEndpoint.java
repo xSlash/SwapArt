@@ -29,4 +29,12 @@ public class MyEndpoint {
         return response;
     }
 
+    @ApiMethod(name = "nameToX")
+    public MyBean nameToX(@Named("name") String name) {
+        MyBean response = new MyBean();
+        response.setData("x" + name + "x");
+
+        return response;
+    }
+
 }
