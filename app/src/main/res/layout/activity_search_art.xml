@@ -43,7 +43,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/main_signup_button" />
 
     <RelativeLayout
         android:layout_width="fill_parent"

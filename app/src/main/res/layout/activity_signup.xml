@@ -31,10 +31,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Full name"
+        android:hint="Full name"
         android:ems="10"
         android:id="@+id/nameText"
-        android:layout_below="@+id/textView4"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
@@ -43,46 +43,36 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/adressText"
-        android:text="Adress"
-        android:layout_below="@+id/nameText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/nameText"
-        android:layout_alignEnd="@+id/nameText" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/phoneText"
-        android:text="Phone"
-        android:layout_below="@+id/adressText"
-        android:layout_alignRight="@+id/adressText"
-        android:layout_alignEnd="@+id/adressText"
+        android:hint="Phone"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/cityText"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/cityText"
-        android:text="City"
-        android:layout_below="@+id/phoneText"
-        android:layout_alignParentLeft="true"
+        android:hint="City"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/phoneText"
-        android:layout_alignEnd="@+id/phoneText" />
+        android:layout_below="@+id/nameText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I agree to the Terms and Conditions"
+        android:text="I agree to and accept the Terms and Conditions"
         android:id="@+id/checkBox"
-        android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@+id/textView4"
         android:checked="false"
-        android:layout_alignRight="@+id/textView4"
-        android:layout_alignEnd="@+id/textView4" />
+        android:layout_above="@+id/button2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/button2"
+        android:layout_alignEnd="@+id/button2" />
 
     <Button
         android:layout_width="wrap_content"
@@ -90,24 +80,25 @@
         android:text="Finish sign up"
         android:id="@+id/button2"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/main_signup_button"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/checkBox"
-        android:layout_toEndOf="@+id/checkBox" />
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Username"
+        android:hint="Username"
         android:ems="10"
         android:id="@+id/usernameText"
-        android:layout_below="@+id/cityText"
+        android:layout_below="@+id/textView4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="45dp"
-        android:layout_alignRight="@+id/cityText"
-        android:layout_alignEnd="@+id/cityText" />
+        android:layout_marginTop="42dp"
+        android:layout_alignRight="@+id/nameText"
+        android:layout_alignEnd="@+id/nameText" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -120,6 +111,6 @@
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/usernameText"
         android:layout_alignEnd="@+id/usernameText"
-        android:text="Password" />
+        android:hint="Password" />
 
 </RelativeLayout>

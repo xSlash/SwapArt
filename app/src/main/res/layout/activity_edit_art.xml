@@ -35,7 +35,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/imageView7"
-        android:layout_alignEnd="@+id/imageView7" />
+        android:layout_alignEnd="@+id/imageView7"
+        android:background="@drawable/main_signup_button" />
 
     <Button
         android:layout_width="wrap_content"
@@ -47,7 +48,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/button11"
-        android:layout_alignEnd="@+id/button11" />
+        android:layout_alignEnd="@+id/button11"
+        android:background="@drawable/main_signup_button" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -101,7 +103,8 @@
         android:id="@+id/button13"
         android:layout_above="@+id/button12"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@drawable/main_signup_button" />
 
     <ImageView
         android:layout_width="wrap_content"

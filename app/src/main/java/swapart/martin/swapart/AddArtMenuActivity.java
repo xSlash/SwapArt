@@ -22,6 +22,12 @@ public class AddArtMenuActivity extends Activity {
                 AddArtMenuActivity.this.startActivity(new Intent(AddArtMenuActivity.this, EditArtActivity.class));
             }
         });
+        findViewById(R.id.button10).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AddArtMenuActivity.this, GalleryActivity.class));
+            }
+        });
     }
 
 
