@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Take photo"
-        android:id="@+id/button9"
+        android:id="@+id/takePhotoButton"
         android:layout_below="@+id/button8"
         android:layout_marginTop="42dp"
         android:layout_alignRight="@+id/button8"
@@ -56,9 +56,17 @@
         android:text="Cancel"
         android:id="@+id/button10"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/button9"
-        android:layout_alignEnd="@+id/button9"
+        android:layout_alignRight="@+id/takePhotoButton"
+        android:layout_alignEnd="@+id/takePhotoButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:background="@drawable/main_signup_button" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/photoImageView"
+        android:layout_below="@+id/imageView6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
 </RelativeLayout>

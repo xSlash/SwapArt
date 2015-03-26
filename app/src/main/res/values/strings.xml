@@ -10,5 +10,6 @@
     <string name="title_activity_add_art_menu">AddArtMenuActivity</string>
     <string name="title_activity_edit_art">EditArtActivity</string>
     <string name="title_activity_search_art">SearchArtActivity</string>
+    <string name="title_activity_take_photo">takePhoto</string>
 
 </resources>

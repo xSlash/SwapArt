@@ -2,24 +2,30 @@ package swapart.martin.swapart;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import swapart.martin.swapartmockup.R;
 
 
 public class AddArtMenuActivity extends Activity {
 
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_art_menu);
-        findViewById(R.id.button9).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.takePhotoButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddArtMenuActivity.this.startActivity(new Intent(AddArtMenuActivity.this, EditArtActivity.class));
+                dispatchTakePictureIntent();
+                //AddArtMenuActivity.this.startActivity(new Intent(AddArtMenuActivity.this, takePhotoActivity.class));
             }
         });
         findViewById(R.id.button10).setOnClickListener(new View.OnClickListener() {
@@ -28,6 +34,25 @@ public class AddArtMenuActivity extends Activity {
                 startActivity(new Intent(AddArtMenuActivity.this, GalleryActivity.class));
             }
         });
+    }
+
+    //Start camera app
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
+    //Get result from camera
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            ImageView mImageView = (ImageView) findViewById(R.id.photoImageView);
+            mImageView.setImageBitmap(imageBitmap);
+        }
     }
 
 
