@@ -69,7 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imageView11"
-            android:src="@drawable/switchicon"
+            android:src="@drawable/tradeicon"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
 
