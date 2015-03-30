@@ -4,17 +4,22 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 
 import swapart.martin.swapartmockup.R;
 
 
 public class GalleryActivity extends Activity {
+
+    static final int REQUEST_IMAGE_CAPTURE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +46,46 @@ public class GalleryActivity extends Activity {
         findViewById(R.id.test_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startPopUp();
+                dispatchTakePictureIntent();
+                //startPopUp();
             }
         });
+    }
+
+    //Start camera app
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
+    //Get result from camera, after taking picture
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+
+            //Create popup
+            final Dialog dialog = new Dialog(context);
+            dialog.setContentView(R.layout.gallery_popup_edit_art);
+            dialog.setTitle("Art information");
+
+            ImageView mImageView = (ImageView) dialog.findViewById(R.id.popUpImg);
+            mImageView.setImageBitmap(imageBitmap);
+
+            Button saveButton = (Button) dialog.findViewById(R.id.save_button);
+            saveButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+
+            dialog.show();
+
+        }
     }
 
     final Context context = this;
