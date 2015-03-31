@@ -11,8 +11,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.Toast;
 
+
+import java.util.ArrayList;
 
 import swapart.martin.swapartmockup.R;
 
@@ -20,6 +25,14 @@ import swapart.martin.swapartmockup.R;
 public class GalleryActivity extends Activity {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
+    private String title;
+    private String artist;
+    private String year;
+    private String dimensions;
+    private String type;
+    private ListView listview;
+
+    private ArrayList<ArtObject> ArtObjectArrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +61,7 @@ public class GalleryActivity extends Activity {
             public void onClick(View v) {
                 dispatchTakePictureIntent();
                 //startPopUp();
+                //Toast.makeText(GalleryActivity.this,"Title2: " + title, Toast.LENGTH_LONG);
             }
         });
     }
@@ -65,21 +79,47 @@ public class GalleryActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            final Bitmap imageBitmap = (Bitmap) extras.get("data");
 
             //Create popup
             final Dialog dialog = new Dialog(context);
             dialog.setContentView(R.layout.gallery_popup_edit_art);
             dialog.setTitle("Art information");
 
-            ImageView mImageView = (ImageView) dialog.findViewById(R.id.popUpImg);
+            final ImageView mImageView = (ImageView) dialog.findViewById(R.id.popUpImg);
             mImageView.setImageBitmap(imageBitmap);
 
             Button saveButton = (Button) dialog.findViewById(R.id.save_button);
             saveButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    EditText edt = (EditText) dialog.findViewById(R.id.title_editText);
+                    title = edt.getText().toString();
+                    EditText edt2 = (EditText) dialog.findViewById(R.id.artist_editText);
+                    artist = edt2.getText().toString();
+                    EditText edt3 = (EditText) dialog.findViewById(R.id.year_editText);
+                    year = edt3.getText().toString();
+                    EditText edt4 = (EditText) dialog.findViewById(R.id.dimensions_editText);
+                    dimensions = edt4.getText().toString();
+                    EditText edt5 = (EditText) dialog.findViewById(R.id.type_editText);
+                    type = edt5.getText().toString();
+
+                    ArtObjectArrayList.add(new ArtObject(title, artist, year, dimensions, type, imageBitmap));
+
+                    Toast.makeText(context, "ArtObject count: " + ArtObjectArrayList.size(), Toast.LENGTH_LONG).show();
+
+                    listview = (ListView) findViewById(R.id.artObjectlistView);
+                    listview.setAdapter(new ArtObjectAdapter(GalleryActivity.this, new String[]{ title }, imageBitmap));
+
+
+                    /*Toast.makeText(GalleryActivity.this,"Title: " + title, Toast.LENGTH_LONG);
+
+                    Button bt = (Button) findViewById(R.id.test_button);
+                    bt.setText(title);*/
+
                     dialog.dismiss();
+
                 }
             });
 
