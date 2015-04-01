@@ -26,4 +26,12 @@ public class ArtObject {
         this.type = Type;
         this.img = Img;
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public Bitmap getImage() {
+        return img;
+    }
 }

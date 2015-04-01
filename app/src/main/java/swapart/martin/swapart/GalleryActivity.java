@@ -109,9 +109,11 @@ public class GalleryActivity extends Activity {
 
                     Toast.makeText(context, "ArtObject count: " + ArtObjectArrayList.size(), Toast.LENGTH_LONG).show();
 
-                    listview = (ListView) findViewById(R.id.artObjectlistView);
-                    listview.setAdapter(new ArtObjectAdapter(GalleryActivity.this, new String[]{ title }, imageBitmap));
+                    //ArtObjectArrayList.indexOf(0)
 
+                    listview = (ListView) findViewById(R.id.artObjectlistView);
+                    //listview.setAdapter(new ArtObjectAdapter(GalleryActivity.this, new String[]{ title }, imageBitmap));
+                    listview.setAdapter(new ArtObjectAdapter(GalleryActivity.this, ArtObjectArrayList));
 
                     /*Toast.makeText(GalleryActivity.this,"Title: " + title, Toast.LENGTH_LONG);
 

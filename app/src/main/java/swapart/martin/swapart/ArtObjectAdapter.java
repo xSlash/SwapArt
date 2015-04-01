@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import swapart.martin.swapartmockup.R;
 
 /**
@@ -17,15 +19,17 @@ import swapart.martin.swapartmockup.R;
 public class ArtObjectAdapter extends BaseAdapter {
 
     Context context;
+    ArrayList<ArtObject> aao;
     String[] data;
     Bitmap img;
     private static LayoutInflater inflater = null;
 
-    public ArtObjectAdapter(Context context, String[] data, Bitmap img) {
+    public ArtObjectAdapter(Context context, ArrayList<ArtObject> aao) {
         // TODO Auto-generated constructor stub
         this.context = context;
-        this.data = data;
-        this.img = img;
+        this.aao = aao;
+        //this.data = data;
+        //this.img = img;
         inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -33,13 +37,15 @@ public class ArtObjectAdapter extends BaseAdapter {
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return data.length;
+        return aao.size();
+        //return data.length;
     }
 
     @Override
     public Object getItem(int position) {
         // TODO Auto-generated method stub
-        return data[position];
+        //return data[position];
+        return aao.indexOf(position);
     }
 
     @Override
@@ -55,9 +61,9 @@ public class ArtObjectAdapter extends BaseAdapter {
         if (vi == null)
             vi = inflater.inflate(R.layout.gallery_row, null);
         TextView text = (TextView) vi.findViewById(R.id.rowTextView);
-        text.setText(data[position]);
+        text.setText(aao.get(position).getTitle());
         ImageView tmpimg = (ImageView) vi.findViewById(R.id.rowImage);
-        tmpimg.setImageBitmap(img);
+        tmpimg.setImageBitmap(aao.get(position).getImage());
         return vi;
     }
 }
