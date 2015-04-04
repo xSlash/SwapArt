@@ -31,6 +31,14 @@ public class ArtObject {
         return title;
     }
 
+    public String getArtist() { return artist; }
+
+    public String getYear() { return year; }
+
+    public String getDimensions() { return dimensions; }
+
+    public String getType() { return type; }
+
     public Bitmap getImage() {
         return img;
     }

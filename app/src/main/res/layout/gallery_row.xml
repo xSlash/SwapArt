@@ -9,6 +9,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/artData"
         android:maxHeight="250px"
         android:maxWidth="250dp"
         android:minHeight="140px"
@@ -19,11 +20,11 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
-        android:id="@+id/rowTextView"
-        android:layout_alignParentTop="true"
+        android:id="@+id/titleTextView"
         android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:layout_alignBottom="@+id/rowImage" />
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/rowImage"
+        android:layout_toEndOf="@+id/rowImage" />
 
     <Button
         android:layout_width="wrap_content"
@@ -31,7 +32,20 @@
         android:text="Change"
         android:id="@+id/rowChangeButton"
         android:gravity="center"
-        android:layout_alignBottom="@+id/rowTextView"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/artData"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/artData"
+        android:layout_below="@+id/titleTextView"
+        android:layout_toRightOf="@+id/rowImage"
+
+        android:layout_toLeftOf="@+id/rowChangeButton"
+        android:layout_toStartOf="@+id/rowChangeButton" />
 </RelativeLayout>

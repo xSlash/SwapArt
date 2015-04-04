@@ -60,8 +60,13 @@ public class ArtObjectAdapter extends BaseAdapter {
         View vi = convertView;
         if (vi == null)
             vi = inflater.inflate(R.layout.gallery_row, null);
-        TextView text = (TextView) vi.findViewById(R.id.rowTextView);
+        TextView text = (TextView) vi.findViewById(R.id.titleTextView);
         text.setText(aao.get(position).getTitle());
+        TextView dataForArt = (TextView) vi.findViewById(R.id.artData);
+        dataForArt.setText("By: " + aao.get(position).getArtist() + ". Year: " + aao.get(position).getYear() + ". Dimensions: " + aao.get(position).getDimensions() + ". Type: " + aao.get(position).getType());
+        /*TextView artistText = (TextView) vi.findViewById(R.id.artist_editText);
+        TextView yearText = (TextView) vi.findViewById(R.id.year_editText);
+        TextView dimText = (TextView) vi.findViewById(R.id.dimensions_editText);*/
         ImageView tmpimg = (ImageView) vi.findViewById(R.id.rowImage);
         tmpimg.setImageBitmap(aao.get(position).getImage());
         return vi;
