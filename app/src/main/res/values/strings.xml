@@ -11,5 +11,6 @@
     <string name="title_activity_edit_art">EditArtActivity</string>
     <string name="title_activity_search_art">SearchArtActivity</string>
     <string name="title_activity_take_photo">takePhoto</string>
+    <string name="title_activity_find_art">FindArt</string>
 
 </resources>

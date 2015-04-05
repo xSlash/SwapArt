@@ -3,7 +3,10 @@
     package="swapart.martin.swapartmockup" >
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-feature android:name="android.hardware.camera" android:required="true" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -40,7 +43,10 @@
             android:name="swapart.martin.swapart.SearchArtActivity"
             android:label="@string/title_activity_search_art" >
         </activity>
-
+        <activity
+            android:name="swapart.martin.swapart.FindArt"
+            android:label="@string/title_activity_find_art" >
+        </activity>
     </application>
 
 </manifest>

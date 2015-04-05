@@ -64,6 +64,12 @@ public class GalleryActivity extends Activity {
                 //Toast.makeText(GalleryActivity.this,"Title2: " + title, Toast.LENGTH_LONG);
             }
         });
+        findViewById(R.id.button6).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(GalleryActivity.this, FindArt.class));
+            }
+        });
     }
 
     //Start camera app
