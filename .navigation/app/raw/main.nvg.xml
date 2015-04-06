@@ -8,64 +8,64 @@
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
         className = "swapart.martin.swapart.EditArtActivity"/>
       <point      
-        x = "3276"      
-        y = "1180"/>
+        x = "2556"      
+        y = "416"/>
     </statePointEntry>
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.MenuState"      
         className = "swapart.martin.swapart.EditArtActivity"/>
       <point      
-        x = "4544"      
-        y = "1180"/>
+        x = "3824"      
+        y = "416"/>
     </statePointEntry>
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
         className = "swapart.martin.swapart.GalleryActivity"/>
       <point      
-        x = "3036"      
-        y = "2860"/>
+        x = "2776"      
+        y = "2304"/>
     </statePointEntry>
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.MenuState"      
         className = "swapart.martin.swapart.GalleryActivity"/>
       <point      
-        x = "4304"      
-        y = "2860"/>
+        x = "4044"      
+        y = "2304"/>
     </statePointEntry>
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
         className = "swapart.martin.swapart.signupActivity"/>
       <point      
-        x = "1768"      
-        y = "7000"/>
+        x = "2604"      
+        y = "5840"/>
     </statePointEntry>
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.MenuState"      
         className = "swapart.martin.swapart.signupActivity"/>
       <point      
-        x = "3036"      
-        y = "7000"/>
+        x = "3872"      
+        y = "5840"/>
     </statePointEntry>
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
         className = "swapart.martin.swapart.MainActivity"/>
       <point      
-        x = "500"      
-        y = "5620"/>
+        x = "748"      
+        y = "4980"/>
     </statePointEntry>
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.MenuState"      
         className = "swapart.martin.swapart.MainActivity"/>
       <point      
-        x = "1768"      
-        y = "5620"/>
+        x = "2016"      
+        y = "4980"/>
     </statePointEntry>
     <statePointEntry>
       <state      
@@ -102,6 +102,22 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "swapart.martin.swapart.FindArt"/>
+      <point      
+        x = "1060"      
+        y = "2652"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.MenuState"      
+        className = "swapart.martin.swapart.FindArt"/>
+      <point      
+        x = "2328"      
+        y = "2652"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
         className = "swapart.martin.swapart.takePhotoActivity"/>
       <point      
         x = "2152"      
@@ -120,32 +136,48 @@
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
         className = "swapart.martin.swapart.TermsConditionsActivity"/>
       <point      
-        x = "3036"      
-        y = "8380"/>
+        x = "3896"      
+        y = "6440"/>
     </statePointEntry>
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.MenuState"      
         className = "swapart.martin.swapart.TermsConditionsActivity"/>
       <point      
-        x = "4304"      
-        y = "8380"/>
+        x = "5164"      
+        y = "6440"/>
     </statePointEntry>
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
         className = "swapart.martin.swapart.SearchArtActivity"/>
       <point      
-        x = "4304"      
-        y = "4240"/>
+        x = "4184"      
+        y = "3560"/>
     </statePointEntry>
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.MenuState"      
         className = "swapart.martin.swapart.SearchArtActivity"/>
       <point      
-        x = "5572"      
-        y = "4240"/>
+        x = "5452"      
+        y = "3560"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "swapart.martin.swapartmockup.FindArt"/>
+      <point      
+        x = "2296"      
+        y = "356"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.MenuState"      
+        className = "swapart.martin.swapartmockup.FindArt"/>
+      <point      
+        x = "3564"      
+        y = "356"/>
     </statePointEntry>
   </locations>
 </navigationModel>

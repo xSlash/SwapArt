@@ -38,18 +38,7 @@ public class GalleryActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
-        findViewById(R.id.imageView3).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                GalleryActivity.this.startActivity(new Intent(GalleryActivity.this, AddArtMenuActivity.class));
-            }
-        });
-        findViewById(R.id.button4).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                GalleryActivity.this.startActivity(new Intent(GalleryActivity.this, EditArtActivity.class));
-            }
-        });
+
         findViewById(R.id.button7).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
