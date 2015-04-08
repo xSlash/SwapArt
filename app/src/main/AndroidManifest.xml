@@ -32,20 +32,16 @@
             android:label="@string/title_activity_gallery" >
         </activity>
         <activity
-            android:name="swapart.martin.swapart.AddArtMenuActivity"
-            android:label="@string/title_activity_add_art_menu" >
-        </activity>
-        <activity
-            android:name="swapart.martin.swapart.EditArtActivity"
-            android:label="@string/title_activity_edit_art" >
-        </activity>
-        <activity
             android:name="swapart.martin.swapart.SearchArtActivity"
             android:label="@string/title_activity_search_art" >
         </activity>
         <activity
             android:name="swapart.martin.swapart.FindArt"
             android:label="@string/title_activity_find_art" >
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" >
         </activity>
     </application>
 

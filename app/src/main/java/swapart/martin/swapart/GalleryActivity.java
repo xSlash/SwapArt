@@ -59,6 +59,12 @@ public class GalleryActivity extends Activity {
                 startActivity(new Intent(GalleryActivity.this, FindArt.class));
             }
         });
+        findViewById(R.id.imageView3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(GalleryActivity.this, swapart.martin.swapartmockup.SettingsActivity.class));
+            }
+        });
     }
 
     //Start camera app
