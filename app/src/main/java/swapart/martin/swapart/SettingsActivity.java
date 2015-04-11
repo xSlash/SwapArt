@@ -1,12 +1,15 @@
-package swapart.martin.swapartmockup;
+package swapart.martin.swapart;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import swapart.martin.swapartmockup.R;
 
-public class SettingsActivity extends ActionBarActivity {
+
+public class SettingsActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

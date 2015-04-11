@@ -4,7 +4,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="swapart.martin.swapartmockup.SettingsActivity"
+    tools:context="swapart.martin.swapart.SettingsActivity"
     android:orientation="vertical"
     android:id="@+id/linearlayout1"
     android:weightSum="1">
@@ -18,12 +18,14 @@
         android:weightSum="1">
 
         <ImageButton
-            android:background="@drawable/main_signup_button"
+            android:background="@null"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imageButton"
-            android:layout_weight="0.10"
-            android:src="@drawable/homeicon" />
+            android:src="@drawable/homeicon"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:layout_weight="0.10" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -35,12 +37,14 @@
             android:layout_weight="0.80" />
 
         <ImageButton
-            android:background="@drawable/main_signup_button"
+            android:background="@null"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/imageButton2"
             android:layout_weight="0.10"
-            android:src="@drawable/settingslogo" />
+            android:src="@drawable/menuicon2"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true" />
     </LinearLayout>
 
     <RelativeLayout
@@ -49,52 +53,71 @@
         android:layout_gravity="center_horizontal">
 
         <Button
+            android:background="@drawable/main_signup_button"
+            android:paddingLeft="35px"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/profileicon"
             android:text="Profile"
-            android:gravity="left|center_vertical"
-            android:id="@+id/profileButton"></Button>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Match criteria"
-            android:id="@+id/button4"
-            android:layout_below="@+id/profileButton"
+            android:id="@+id/profileButton"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+
+            android:textAlignment="gravity"
+            android:singleLine="true"></Button>
 
         <Button
+            android:background="@drawable/main_signup_button"
+            android:paddingLeft="35px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/matchcriteriaicon"
+            android:id="@+id/matchcriteriaButton"
+            android:layout_below="@+id/profileButton"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="Match criteria" />
+
+        <Button
+            android:background="@drawable/main_signup_button"
+            android:paddingLeft="35px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="App settings"
-            android:id="@+id/button5"
-            android:layout_below="@+id/button4"
+            android:drawableLeft="@drawable/settingsicon"
+            android:id="@+id/appSettingsButton"
+            android:layout_below="@+id/matchcriteriaButton"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:textAlignment="gravity" />
 
         <Button
+            android:background="@drawable/main_signup_button"
+            android:paddingLeft="35px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Contact support"
-            android:id="@+id/button8"
-            android:layout_below="@+id/button5"
+            android:drawableLeft="@drawable/contacticon"
+            android:id="@+id/contactSupportButton"
+            android:layout_below="@+id/appSettingsButton"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
         <Button
+            android:background="@drawable/main_signup_button"
+            android:paddingLeft="35px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Share Swapart"
-            android:id="@+id/button9"
-            android:layout_below="@+id/button8"
+            android:drawableLeft="@drawable/shareicon"
+            android:id="@+id/shareButton"
+            android:layout_below="@+id/contactSupportButton"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentRight="true"

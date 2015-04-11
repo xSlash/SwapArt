@@ -38,38 +38,6 @@
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "swapart.martin.swapart.signupActivity"/>
-      <point      
-        x = "2604"      
-        y = "5840"/>
-    </statePointEntry>
-    <statePointEntry>
-      <state      
-        class = "com.android.tools.idea.editors.navigation.model.MenuState"      
-        className = "swapart.martin.swapart.signupActivity"/>
-      <point      
-        x = "3872"      
-        y = "5840"/>
-    </statePointEntry>
-    <statePointEntry>
-      <state      
-        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
-        className = "swapart.martin.swapart.MainActivity"/>
-      <point      
-        x = "748"      
-        y = "4980"/>
-    </statePointEntry>
-    <statePointEntry>
-      <state      
-        class = "com.android.tools.idea.editors.navigation.model.MenuState"      
-        className = "swapart.martin.swapart.MainActivity"/>
-      <point      
-        x = "2016"      
-        y = "4980"/>
-    </statePointEntry>
-    <statePointEntry>
-      <state      
-        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
         className = "swapart.martin.swapart.takePhoto"/>
       <point      
         x = "2428"      
@@ -88,7 +56,7 @@
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
         className = "swapart.martin.swapart.AddArtMenuActivity"/>
       <point      
-        x = "880"      
+        x = "876"      
         y = "164"/>
     </statePointEntry>
     <statePointEntry>
@@ -178,6 +146,70 @@
       <point      
         x = "3564"      
         y = "356"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "swapart.martin.swapart.SettingsActivity"/>
+      <point      
+        x = "2440"      
+        y = "676"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.MenuState"      
+        className = "swapart.martin.swapart.SettingsActivity"/>
+      <point      
+        x = "3708"      
+        y = "676"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "swapart.martin.swapart.signupActivity"/>
+      <point      
+        x = "2604"      
+        y = "5840"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.MenuState"      
+        className = "swapart.martin.swapart.signupActivity"/>
+      <point      
+        x = "3872"      
+        y = "5840"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "swapart.martin.swapart.MainActivity"/>
+      <point      
+        x = "724"      
+        y = "5316"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.MenuState"      
+        className = "swapart.martin.swapart.MainActivity"/>
+      <point      
+        x = "1992"      
+        y = "5316"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "swapart.martin.swapartmockup.SettingsActivity"/>
+      <point      
+        x = "4480"      
+        y = "1520"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.MenuState"      
+        className = "swapart.martin.swapartmockup.SettingsActivity"/>
+      <point      
+        x = "5748"      
+        y = "1520"/>
     </statePointEntry>
   </locations>
 </navigationModel>
