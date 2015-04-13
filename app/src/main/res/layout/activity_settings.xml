@@ -64,7 +64,8 @@
             android:layout_alignParentStart="true"
 
             android:textAlignment="gravity"
-            android:singleLine="true"></Button>
+            android:singleLine="true"
+            android:layout_marginTop="50px"></Button>
 
         <Button
             android:background="@drawable/main_signup_button"
@@ -118,6 +119,20 @@
             android:drawableLeft="@drawable/shareicon"
             android:id="@+id/shareButton"
             android:layout_below="@+id/contactSupportButton"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:background="@drawable/main_signup_button"
+            android:paddingLeft="35px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check for updates"
+            android:drawableLeft="@drawable/updateicon"
+            android:id="@+id/checkForUpdates"
+            android:layout_below="@+id/shareButton"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentRight="true"
