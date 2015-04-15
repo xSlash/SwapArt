@@ -7,18 +7,24 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <Button
+    <ImageButton
         android:id="@+id/left"
-        android:layout_margin="10dp"
+        android:layout_margin="30dp"
+        android:scaleType="centerInside"
         android:text="Left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/selector_no_button"
+        android:src="@drawable/nomark"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/right"
-        android:layout_margin="10dp"
+        android:layout_margin="30dp"
+        android:scaleType="centerInside"
         android:text="Right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/selector_yes_button"
+        android:src="@drawable/yesmark"/>
 
 </LinearLayout>

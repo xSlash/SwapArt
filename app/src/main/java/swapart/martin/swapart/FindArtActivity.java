@@ -2,18 +2,22 @@ package swapart.martin.swapart;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -21,7 +25,7 @@ import butterknife.OnClick;
 import swapart.martin.swapartmockup.R;
 
 
-public class FindArt extends Activity {
+public class FindArtActivity extends Activity {
 
     private ArrayList<String> al;
     private ArrayAdapter<String> arrayAdapter;
@@ -32,12 +36,13 @@ public class FindArt extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_find_art2);
         //activity_find_art was the original
+        setContentView(R.layout.activity_find_art2);
+
         ButterKnife.inject(this);
 
-
         al = new ArrayList<>();
+
         al.add("picture 1");
         al.add("picture 2");
         al.add("picture 3");
@@ -47,7 +52,7 @@ public class FindArt extends Activity {
         al.add("picture 7");
         al.add("picture 8");
 
-        arrayAdapter = new ArrayAdapter<>(this, R.layout.swipeart_element, R.id.helloText, al );
+        arrayAdapter = new ArrayAdapter<>(this, R.layout.swipeart_element, R.id.art_element_image, al );
 
 
         flingContainer.setAdapter(arrayAdapter);
@@ -58,6 +63,7 @@ public class FindArt extends Activity {
                 Log.d("LIST", "removed object!");
                 al.remove(0);
                 arrayAdapter.notifyDataSetChanged();
+
             }
 
             @Override
@@ -66,12 +72,12 @@ public class FindArt extends Activity {
                 //You also have access to the original object.
                 //If you want to use it just cast it (String) dataObject
                 //Toast.makeText(FindArt.this, "Left!", Toast.LENGTH_LONG).show();
-                makeToast(FindArt.this, "Left!");
+                makeToast(FindArtActivity.this, "Left!");
             }
 
             @Override
             public void onRightCardExit(Object dataObject) {
-                makeToast(FindArt.this, "Right!");
+                makeToast(FindArtActivity.this, "Right!");
             }
 
             @Override
@@ -97,7 +103,7 @@ public class FindArt extends Activity {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {
 
-                makeToast(FindArt.this, "Clicked!");
+                makeToast(FindArtActivity.this, "Clicked!");
             }
         });
     }
@@ -141,4 +147,10 @@ public class FindArt extends Activity {
     public void left() {
         flingContainer.getTopCardListener().selectLeft();
     }
+
+    @OnClick(R.id.homeFindArt)
+    public void dismissActivity() { finish();}
+
+    @OnClick(R.id.settingsFindArt)
+    public void startActivity() { startActivity(new Intent(FindArtActivity.this, SettingsActivity.class));}
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_header"
+    android:orientation="horizontal"
+    android:layout_gravity="top"
+    android:layout_width="fill_parent"
+    android:layout_height="100px"
+    android:weightSum="1">
+
+    <ImageButton
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/homeFindArt"
+        android:src="@drawable/homeicon"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:layout_weight="0.10" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Swapart"
+        android:id="@+id/textView9"
+        android:gravity="center"
+        android:layout_weight="0.80" />
+
+    <ImageButton
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/settingsFindArt"
+        android:layout_weight="0.10"
+        android:src="@drawable/menuicon2"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true" />
+</LinearLayout>

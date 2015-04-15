@@ -49,14 +49,12 @@ public class GalleryActivity extends Activity {
             @Override
             public void onClick(View v) {
                 dispatchTakePictureIntent();
-                //startPopUp();
-                //Toast.makeText(GalleryActivity.this,"Title2: " + title, Toast.LENGTH_LONG);
             }
         });
         findViewById(R.id.button6).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(GalleryActivity.this, FindArt.class));
+                startActivity(new Intent(GalleryActivity.this, FindArtActivity.class));
             }
         });
         findViewById(R.id.imageView3).setOnClickListener(new View.OnClickListener() {
@@ -65,6 +63,7 @@ public class GalleryActivity extends Activity {
                 startActivity(new Intent(GalleryActivity.this, SettingsActivity.class));
             }
         });
+
     }
 
     //Start camera app

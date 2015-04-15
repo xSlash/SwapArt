@@ -36,7 +36,7 @@
             android:label="@string/title_activity_search_art" >
         </activity>
         <activity
-            android:name="swapart.martin.swapart.FindArt"
+            android:name="swapart.martin.swapart.FindArtActivity"
             android:label="@string/title_activity_find_art" >
         </activity>
         <activity
