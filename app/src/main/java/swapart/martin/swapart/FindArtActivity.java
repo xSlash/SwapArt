@@ -1,6 +1,7 @@
 package swapart.martin.swapart;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -30,6 +31,7 @@ public class FindArtActivity extends Activity {
     private ArrayList<String> al;
     private ArrayAdapter<String> arrayAdapter;
     private int i = 9;
+    private final Context context = this;
 
     @InjectView(R.id.frame) SwipeFlingAdapterView flingContainer;
 
@@ -152,5 +154,12 @@ public class FindArtActivity extends Activity {
     public void dismissActivity() { finish();}
 
     @OnClick(R.id.settingsFindArt)
-    public void startActivity() { startActivity(new Intent(FindArtActivity.this, SettingsActivity.class));}
+    public void startActivity() {
+        final Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.activity_settings);
+        dialog.setTitle("Menu");
+
+        dialog.show();
+        //startActivity(new Intent(FindArtActivity.this, SettingsActivity.class));
+    }
 }
