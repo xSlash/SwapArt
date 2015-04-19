@@ -6,12 +6,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,12 +29,14 @@ import butterknife.OnClick;
 import swapart.martin.swapartmockup.R;
 
 
-public class FindArtActivity extends Activity {
+public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChangeListener{
 
     private ArrayList<String> al;
     private ArrayAdapter<String> arrayAdapter;
     private int i = 9;
     private final Context context = this;
+    //private SeekBar distanceBar;
+    //private TextView distancetextview = (TextView)findViewById(R.id.distanceTV);
 
     @InjectView(R.id.frame) SwipeFlingAdapterView flingContainer;
 
@@ -159,7 +164,132 @@ public class FindArtActivity extends Activity {
         dialog.setContentView(R.layout.activity_settings);
         dialog.setTitle("Menu");
 
+        Button updateButton = (Button) dialog.findViewById(R.id.checkForUpdates);
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Uri uri = Uri.parse("https://dl.dropboxusercontent.com/u/12052609/SwapArt.apk");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
+        Button settingsButton = (Button) dialog.findViewById(R.id.matchcriteriaButton);
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final Dialog dialog2 = new Dialog(context);
+                dialog2.setContentView(R.layout.popup_settings_app);
+                dialog2.setTitle("Swapart Settings");
+
+                final TextView distancetext = (TextView)dialog2.findViewById(R.id.distanceTV);
+                SeekBar distanceBar = (SeekBar)dialog2.findViewById(R.id.seekBar); // make seekbar object
+                //distanceBar.setOnSeekBarChangeListener(FindArtActivity.this);
+
+
+                distanceBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+                        //Do something here with new value
+                        distancetext.setText("Distance: "+(progress + 1) + " km");
+                    }
+
+                    @Override
+                    public void onStartTrackingTouch(SeekBar seekBar) {
+                        // TODO Auto-generated method stub
+                        //textAction.setText("starting to track touch");
+
+                    }
+
+                    @Override
+                    public void onStopTrackingTouch(SeekBar seekBar) {
+                        // TODO Auto-generated method stub
+                        seekBar.setSecondaryProgress(seekBar.getProgress());
+                        //textAction.setText("ended tracking touch");
+                    }
+                });
+
+                //Renting period bar
+                final TextView rentingtext = (TextView)dialog2.findViewById(R.id.rentperiodtext);
+                final SeekBar rentingperiodBar = (SeekBar)dialog2.findViewById(R.id.rentperiodBar); // make seekbar object
+                //distanceBar.setOnSeekBarChangeListener(FindArtActivity.this);
+
+
+                rentingperiodBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+                        //Do something here with new value
+                        if (rentingperiodBar.getProgress() <= 5) {
+                            rentingperiodBar.setProgress(0);
+                            rentingtext.setText("Rent period: 1-7 days");
+                        }
+                        else if (rentingperiodBar.getProgress() > 5 && rentingperiodBar.getProgress() <=35){
+                            rentingperiodBar.setProgress(25);
+                            rentingtext.setText("Rent period: 1-4 weeks");
+                        }
+                        else if (rentingperiodBar.getProgress() > 35 && rentingperiodBar.getProgress() <=65){
+                            rentingperiodBar.setProgress(50);
+                            rentingtext.setText("Rent period: 1-6 months");
+                        }
+
+                        else if (rentingperiodBar.getProgress() > 65 && rentingperiodBar.getProgress() <=90){
+                            rentingperiodBar.setProgress(75);
+                            rentingtext.setText("Rent period: 6-12 months");
+                        }
+
+                        else if (rentingperiodBar.getProgress() > 90){
+                            rentingperiodBar.setProgress(100);
+                            rentingtext.setText("Rent period: +1 year");
+                        }
+
+                    }
+
+                    @Override
+                    public void onStartTrackingTouch(SeekBar seekBar) {
+                        // TODO Auto-generated method stub
+                        //textAction.setText("starting to track touch");
+
+                    }
+
+                    @Override
+                    public void onStopTrackingTouch(SeekBar seekBar) {
+                        // TODO Auto-generated method stub
+                        seekBar.setSecondaryProgress(seekBar.getProgress());
+                        //textAction.setText("ended tracking touch");
+                    }
+                });
+
+
+                dialog2.show();
+            }
+        });
+
         dialog.show();
         //startActivity(new Intent(FindArtActivity.this, SettingsActivity.class));
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar distanceBar, int progress,
+                                  boolean fromUser) {
+        // TODO Auto-generated method stub
+
+        // change progress text label with current seekbar value
+        //distancetextview.setText("The value is: "+progress);
+        // change action text label to changing
+        //textAction.setText("changing");
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+        // TODO Auto-generated method stub
+        //textAction.setText("starting to track touch");
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+        // TODO Auto-generated method stub
+        seekBar.setSecondaryProgress(seekBar.getProgress());
+        //textAction.setText("ended tracking touch");
     }
 }
