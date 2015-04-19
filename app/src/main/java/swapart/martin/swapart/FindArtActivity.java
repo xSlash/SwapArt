@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,7 +19,6 @@ import android.widget.Toast;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -175,13 +172,37 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
             }
         });
 
-        Button settingsButton = (Button) dialog.findViewById(R.id.matchcriteriaButton);
-        settingsButton.setOnClickListener(new View.OnClickListener() {
+        Button profileButton = (Button) dialog.findViewById(R.id.profileButton);
+        profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 final Dialog dialog2 = new Dialog(context);
-                dialog2.setContentView(R.layout.popup_settings_app);
+                dialog2.setContentView(R.layout.popup_profile);
+                dialog2.setTitle("Edit profile");
+
+                Button saveChanges = (Button) dialog2.findViewById(R.id.saveProfileButton);
+                saveChanges.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        dialog2.dismiss();
+                    }
+                });
+
+                dialog2.show();
+
+            }
+
+            });
+
+        Button matchCriteriaButton = (Button) dialog.findViewById(R.id.matchcriteriaButton);
+        matchCriteriaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final Dialog dialog2 = new Dialog(context);
+                dialog2.setContentView(R.layout.popup_match_criteria);
                 dialog2.setTitle("Swapart Settings");
 
                 final TextView distancetext = (TextView)dialog2.findViewById(R.id.distanceTV);
@@ -259,10 +280,45 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
                     }
                 });
 
+                Button saveChanges = (Button) dialog2.findViewById(R.id.saveChangesButton);
+                saveChanges.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        dialog2.dismiss();
+                    }
+                });
+
 
                 dialog2.show();
             }
         });
+
+        Button shareButton = (Button) dialog.findViewById(R.id.shareButton);
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final Dialog dialog2 = new Dialog(context);
+                dialog2.setContentView(R.layout.popup_share_swapart);
+                dialog2.setTitle("Share Swapart");
+
+                Button closeShareDialog = (Button) dialog2.findViewById(R.id.closeShareButton);
+                closeShareDialog.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        dialog2.dismiss();
+                    }
+                });
+
+                dialog2.show();
+
+            }
+
+        });
+
+
 
         dialog.show();
         //startActivity(new Intent(FindArtActivity.this, SettingsActivity.class));
