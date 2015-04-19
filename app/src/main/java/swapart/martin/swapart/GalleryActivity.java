@@ -39,24 +39,39 @@ public class GalleryActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
 
-        findViewById(R.id.button7).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.matchesButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GalleryActivity.this.startActivity(new Intent(GalleryActivity.this, SearchArtActivity.class));
+                GalleryActivity.this.startActivity(new Intent(GalleryActivity.this, MatchesActivity.class));
             }
         });
+
+        /*findViewById(R.id.old_matches).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GalleryActivity.this.startActivity(new Intent(GalleryActivity.this, MatchesActivity.class));
+            }
+        });*/
         findViewById(R.id.test_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dispatchTakePictureIntent();
             }
         });
-        findViewById(R.id.button6).setOnClickListener(new View.OnClickListener() {
+
+        findViewById(R.id.findArtButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(GalleryActivity.this, FindArtActivity.class));
             }
         });
+
+        /*findViewById(R.id.old_find_art).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(GalleryActivity.this, FindArtActivity.class));
+            }
+        });*/
         findViewById(R.id.imageView3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

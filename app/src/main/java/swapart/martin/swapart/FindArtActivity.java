@@ -318,6 +318,39 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
 
         });
 
+        Button contactButton = (Button) dialog.findViewById(R.id.contactButton);
+        contactButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final Dialog dialog2 = new Dialog(context);
+                dialog2.setContentView(R.layout.popup_contact_us);
+                dialog2.setTitle("Contact us");
+
+                Button closeShareDialog = (Button) dialog2.findViewById(R.id.closeContact);
+                closeShareDialog.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        dialog2.dismiss();
+                    }
+                });
+
+                dialog2.show();
+
+            }
+
+        });
+
+        Button closesettings = (Button) dialog.findViewById(R.id.closeSettings);
+        closesettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+
+        });
+
 
 
         dialog.show();

@@ -32,7 +32,7 @@
             android:label="@string/title_activity_gallery" >
         </activity>
         <activity
-            android:name="swapart.martin.swapart.SearchArtActivity"
+            android:name="swapart.martin.swapart.MatchesActivity"
             android:label="@string/title_activity_search_art" >
         </activity>
         <activity

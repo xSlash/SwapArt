@@ -23,10 +23,17 @@ public class MainActivity extends Activity {
 
         //doStuff();
 
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.signUpButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MainActivity.this.startActivity(new Intent(MainActivity.this, signupActivity.class));
+            }
+        });
+
+        findViewById(R.id.skipButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.startActivity(new Intent(MainActivity.this, GalleryActivity.class));
             }
         });
 

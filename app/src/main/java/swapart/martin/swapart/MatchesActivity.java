@@ -8,12 +8,12 @@ import android.view.MenuItem;
 import swapart.martin.swapartmockup.R;
 
 
-public class SearchArtActivity extends Activity {
+public class MatchesActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_art);
+        setContentView(R.layout.activity_matches);
     }
 
 
