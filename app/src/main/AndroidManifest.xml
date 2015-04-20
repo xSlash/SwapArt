@@ -3,11 +3,14 @@
     package="swapart.martin.swapartmockup" >
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-feature android:name="android.hardware.camera" android:required="true" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/swaparticon"
         android:theme="@style/AppTheme" >
         <activity
             android:name="swapart.martin.swapart.MainActivity"
@@ -29,18 +32,17 @@
             android:label="@string/title_activity_gallery" >
         </activity>
         <activity
-            android:name="swapart.martin.swapart.AddArtMenuActivity"
-            android:label="@string/title_activity_add_art_menu" >
-        </activity>
-        <activity
-            android:name="swapart.martin.swapart.EditArtActivity"
-            android:label="@string/title_activity_edit_art" >
-        </activity>
-        <activity
-            android:name="swapart.martin.swapart.SearchArtActivity"
+            android:name="swapart.martin.swapart.MatchesActivity"
             android:label="@string/title_activity_search_art" >
         </activity>
-
+        <activity
+            android:name="swapart.martin.swapart.FindArtActivity"
+            android:label="@string/title_activity_find_art" >
+        </activity>
+        <activity
+            android:name="swapart.martin.swapart.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
     </application>
 
 </manifest>

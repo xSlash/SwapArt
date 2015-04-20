@@ -8,15 +8,7 @@ import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
-import com.google.api.client.extensions.android.http.AndroidHttp;
-import com.google.api.client.extensions.android.json.AndroidJsonFactory;
-
-import java.io.IOException;
-
-import swapart.martin.backend.myApi.MyApi;
 import swapart.martin.swapartmockup.R;
 
 
@@ -31,10 +23,17 @@ public class MainActivity extends Activity {
 
         //doStuff();
 
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.signUpButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MainActivity.this.startActivity(new Intent(MainActivity.this, signupActivity.class));
+            }
+        });
+
+        findViewById(R.id.skipButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.startActivity(new Intent(MainActivity.this, GalleryActivity.class));
             }
         });
 

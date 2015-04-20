@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="200px"
+        android:weightSum="1">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/imageButton4"
+            android:layout_weight="0.30"
+            android:layout_gravity="center"
+            android:src="@drawable/fbshareicon"
+            android:background="@null"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="30dp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/imageButton5"
+            android:layout_weight="0.30"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/twittershareicon"
+            android:background="@null"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="30dp" />
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Close"
+        android:id="@+id/closeShareButton"
+        android:background="@drawable/main_signup_button"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp" />
+</LinearLayout>

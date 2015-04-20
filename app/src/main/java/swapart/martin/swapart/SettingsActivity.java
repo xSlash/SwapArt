@@ -1,26 +1,40 @@
 package swapart.martin.swapart;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import swapart.martin.swapartmockup.R;
 
 
-public class SearchArtActivity extends Activity {
+public class SettingsActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_art);
+        setContentView(R.layout.activity_settings);
+
+        findViewById(R.id.checkForUpdates).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //startActivity(new Intent(GalleryActivity.this, SettingsActivity.class));
+                Uri uri = Uri.parse("https://dl.dropboxusercontent.com/u/12052609/SwapArt.apk");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_search_art, menu);
+        getMenuInflater().inflate(R.menu.menu_settings, menu);
         return true;
     }
 

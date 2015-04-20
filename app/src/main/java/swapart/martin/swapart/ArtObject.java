@@ -26,4 +26,20 @@ public class ArtObject {
         this.type = Type;
         this.img = Img;
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getArtist() { return artist; }
+
+    public String getYear() { return year; }
+
+    public String getDimensions() { return dimensions; }
+
+    public String getType() { return type; }
+
+    public Bitmap getImage() {
+        return img;
+    }
 }
