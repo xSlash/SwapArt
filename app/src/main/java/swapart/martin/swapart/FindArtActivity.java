@@ -10,8 +10,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,7 +58,15 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
         al.add("picture 7");
         al.add("picture 8");
 
-        arrayAdapter = new ArrayAdapter<>(this, R.layout.swipeart_element, R.id.art_element_image, al );
+        arrayAdapter = new ArrayAdapter<String>(this, R.layout.swipeart_element, R.id.art_element_image, al ) {
+            @Override
+            public View getView(int position, View v, ViewGroup parent) {
+                v = super.getView(position, v, parent);
+                ImageView billede = (ImageView) v.findViewById(R.id.billede);
+                billede.setImageResource(R.drawable.art1 + position%6 );
+                return v;
+            }
+        };
 
 
         flingContainer.setAdapter(arrayAdapter);
