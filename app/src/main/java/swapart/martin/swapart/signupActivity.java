@@ -2,10 +2,12 @@ package swapart.martin.swapart;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import swapart.martin.swapartmockup.R;
 
@@ -25,6 +27,23 @@ public class signupActivity extends Activity {
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EditText username = (EditText) findViewById(R.id.usernameText);
+                EditText password = (EditText) findViewById(R.id.passwordText);
+
+                EditText name = (EditText) findViewById(R.id.nameText);
+                EditText city = (EditText) findViewById(R.id.cityText);
+                EditText phone = (EditText) findViewById(R.id.phoneText);
+
+                SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
+                editor.putString("Username", username.getText().toString());
+                editor.putString("Password", password.getText().toString());
+
+                editor.putString("Name", name.getText().toString());
+                editor.putString("City", city.getText().toString());
+                editor.putString("Phone", phone.getText().toString());
+
+                editor.commit();
+
                 signupActivity.this.startActivity(new Intent(signupActivity.this, GalleryActivity.class));
             }
         });

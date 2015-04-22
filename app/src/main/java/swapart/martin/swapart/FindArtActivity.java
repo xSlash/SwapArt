@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -196,10 +198,32 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
                 dialog2.setContentView(R.layout.popup_profile);
                 dialog2.setTitle("Edit profile");
 
+                SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
+
+                EditText name = (EditText) dialog2.findViewById(R.id.nameText);
+                name.setText(prefs.getString("Name", "no name chosen"));
+                EditText city = (EditText) dialog2.findViewById(R.id.cityText);
+                city.setText(prefs.getString("City", "no city chosen"));
+                EditText phone = (EditText) dialog2.findViewById(R.id.phoneText);
+                phone.setText(prefs.getString("Phone", "no number set"));
+
+
                 Button saveChanges = (Button) dialog2.findViewById(R.id.saveProfileButton);
                 saveChanges.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
+
+                        EditText name = (EditText) dialog2.findViewById(R.id.nameText);
+                        EditText city = (EditText) dialog2.findViewById(R.id.cityText);
+                        EditText phone = (EditText) dialog2.findViewById(R.id.phoneText);
+
+                        editor.putString("Name", name.getText().toString());
+                        editor.putString("City", city.getText().toString());
+                        editor.putString("Phone", phone.getText().toString());
+
+                        editor.commit();
 
                         dialog2.dismiss();
                     }
