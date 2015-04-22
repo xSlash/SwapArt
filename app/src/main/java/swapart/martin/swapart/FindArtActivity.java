@@ -1,5 +1,6 @@
 package swapart.martin.swapart;
 
+import java.util.Random;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -63,7 +64,11 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
             public View getView(int position, View v, ViewGroup parent) {
                 v = super.getView(position, v, parent);
                 ImageView billede = (ImageView) v.findViewById(R.id.billede);
-                billede.setImageResource(R.drawable.art1 + position%6 );
+
+                Random r = new Random();
+                int randomnumber = r.nextInt(5);
+
+                billede.setImageResource(R.drawable.art1 + randomnumber );
                 return v;
             }
         };
