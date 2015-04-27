@@ -13,11 +13,15 @@ import com.google.api.server.spi.config.ApiNamespace;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.EntityNotFoundException;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.*;
 
-import java.security.Key;
+
 
 import javax.inject.Named;
+
 
 /**
  * An endpoint class we are exposing
@@ -45,39 +49,66 @@ public class MyEndpoint {
     }
 
     @ApiMethod(name = "storeObject")
-    public MyBean storeObject(@Named("username") String username, @Named("password") String password, @Named("name") String name, @Named("city") String city, @Named("phone") String phone) throws EntityNotFoundException {
+    public MyBean storeObject(@Named("username") String username, @Named("password") String password) throws EntityNotFoundException {
 
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
 
-        Entity newuser = new Entity("Users", username);
 
-        newuser.setProperty("userName", username);
-        newuser.setProperty("password", password);
-        newuser.setProperty("fullname", name);
+        /*Entity newuser = new Entity("Users", username);
+
+        Key keyone = newuser.getKey();
+
+
+        if (datastore.get(newuser.getKey()).getKey() == keyone) {
+
+
+
+            MyBean response = new MyBean();
+            //response.setData(tempKey + " key created!" + " and username: " + createdUserName);
+
+            response.setData("User already exist!");
+
+            return response;
+
+        }
+
+        else {*/
+
+            Entity createUser = new Entity("Users", username);
+
+            createUser.setProperty("userName", username);
+            createUser.setProperty("passWord", password);
+        /*newuser.setProperty("fullname", name);
         newuser.setProperty("city", city);
-        newuser.setProperty("phone", phone);
+        newuser.setProperty("phone", phone);*/
 
-        //com.google.appengine.api.datastore.Key newuserKey = newuser.getKey();
+            //com.google.appengine.api.datastore.Key newuserKey = newuser.getKey();
 
-        //Date hireDate = new Date();
-        //employee.setProperty("hireDate", hireDate);
+            //Date hireDate = new Date();
+            //employee.setProperty("hireDate", hireDate);
 
-        //employee.setProperty("attendedHrTraining", true);
-
-
-        datastore.put(newuser);
-
-        Entity newlyCreatedUser = datastore.get(newuser.getKey());
+            //employee.setProperty("attendedHrTraining", true);
 
 
-        String createdUserName = (String) newlyCreatedUser.getProperty("username");
+            datastore.put(createUser);
+
+            Key tempKey = createUser.getKey();
+
+            Entity newlyCreatedUser = datastore.get(tempKey);
 
 
-        MyBean response = new MyBean();
-        response.setData(createdUserName + " created!");
+            String createdUserName = (String) newlyCreatedUser.getProperty("userName");
+            String createdPassWord = (String) newlyCreatedUser.getProperty("passWord");
 
-        return response;
+            MyBean response = new MyBean();
+            //response.setData(tempKey + " key created!" + " and username: " + createdUserName);
+
+            response.setData("Username: " + createdUserName + ". Password: " + createdPassWord);
+
+            return response;
+        //}
     }
+
 
 }

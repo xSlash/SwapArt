@@ -23,7 +23,7 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 
     @Override
     protected String doInBackground(Pair<Context, String>... params) {
-        if(myApiService == null) {  // Only do this once
+        if (myApiService == null) {  // Only do this once
 
             /* For localhost
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(), null)
@@ -42,15 +42,28 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
             myApiService = builder.build();
         }
 
+
         context = params[0].first;
         String name = params[0].second;
 
-        try {
-            //return myApiService.nameToX(name).execute().getData();
-            return myApiService.storeObject("testUserName", "testPassword", "testFullName", "testCity", "testPhone").execute().getData();
+        if(name.equals("createUser")) {
 
-        } catch (IOException e) {
-            return e.getMessage();
+            try {
+                //return myApiService.nameToX(name).execute().getData();
+                return myApiService.storeObject("someuser1", "somepassword2").execute().getData();
+
+            } catch (IOException e) {
+                return e.getMessage();
+            }
+        }
+        else {
+            try {
+                //return myApiService.nameToX(name).execute().getData();
+                return myApiService.storeObject("testUser2", "testPW2").execute().getData();
+
+            } catch (IOException e) {
+                return e.getMessage();
+            }
         }
     }
 
