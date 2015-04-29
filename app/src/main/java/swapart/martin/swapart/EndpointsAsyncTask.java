@@ -1,6 +1,7 @@
 package swapart.martin.swapart;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Pair;
 import android.widget.Toast;
@@ -20,6 +21,7 @@ import swapart.martin.backend.myApi.MyApi;
 class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
     private static MyApi myApiService = null;
     private Context context;
+
 
     @Override
     protected String doInBackground(Pair<Context, String>... params) {
@@ -48,9 +50,18 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 
         if(name.equals("createUser")) {
 
+            SharedPreferences prefs = context.getSharedPreferences("User_Object", context.MODE_PRIVATE);
+
             try {
+
+                String prefs_username = prefs.getString("Username", "no username chosen");
+                String prefs_password = prefs.getString("Password", "no password chosen");
+                String prefs_name = prefs.getString("Name", "no name chosen");
+                String prefs_city = prefs.getString("City", "no city chosen");
+                String prefs_phone = prefs.getString("Phone", "no phone chosen");
+
                 //return myApiService.nameToX(name).execute().getData();
-                return myApiService.storeObject("someuser1", "somepassword2", "somename2", "somecity2", "somephone2").execute().getData();
+                return myApiService.storeObject(prefs_username, prefs_password, prefs_name, prefs_city, prefs_phone).execute().getData();
                 //return myApiService.storeObject("someuser1", "somepassword2").execute().getData();
 
             } catch (IOException e) {

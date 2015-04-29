@@ -1,9 +1,11 @@
 package swapart.martin.swapart;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +15,8 @@ import swapart.martin.swapartmockup.R;
 
 
 public class signupActivity extends Activity {
+
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,19 @@ public class signupActivity extends Activity {
                 editor.putString("Phone", phone.getText().toString());
 
                 editor.commit();
+
+                //retrieve saved User preferences (name, city etc)
+                /*SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
+                String prefs_username = prefs.getString("Username", "no username chosen");
+                String prefs_password = prefs.getString("Password", "no password chosen");
+                String prefs_name = prefs.getString("Name", "no name chosen");
+                String prefs_city = prefs.getString("City", "no city chosen");
+                String prefs_phone = prefs.getString("phone", "no name chosen");*/
+
+                //EndpointsAsyncTask eat = ;
+                //new EndpointsAsyncTask().execute(new Pair<Context, String>(context, "createUser"));
+
+
 
                 signupActivity.this.startActivity(new Intent(signupActivity.this, GalleryActivity.class));
             }
