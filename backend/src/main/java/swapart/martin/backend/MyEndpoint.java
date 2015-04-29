@@ -54,6 +54,7 @@ public class MyEndpoint {
         response.setData("x" + username + "x");
 
         return response;
+
     }
 
     @ApiMethod(name = "storeObject")
