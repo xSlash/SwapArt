@@ -49,7 +49,8 @@ public class MyEndpoint {
     }
 
     @ApiMethod(name = "storeObject")
-    public MyBean storeObject(@Named("username") String username, @Named("password") String password) throws EntityNotFoundException {
+    public MyBean storeObject(@Named("username") String username, @Named("password") String password, @Named("name") String name, @Named("city") String city, @Named("phone") String phone) throws EntityNotFoundException {
+    //public MyBean storeObject(@Named("username") String username, @Named("password") String password) throws EntityNotFoundException {
 
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
@@ -79,9 +80,9 @@ public class MyEndpoint {
 
             createUser.setProperty("userName", username);
             createUser.setProperty("passWord", password);
-        /*newuser.setProperty("fullname", name);
-        newuser.setProperty("city", city);
-        newuser.setProperty("phone", phone);*/
+            createUser.setProperty("fullname", name);
+            createUser.setProperty("city", city);
+            createUser.setProperty("phone", phone);
 
             //com.google.appengine.api.datastore.Key newuserKey = newuser.getKey();
 
@@ -100,11 +101,15 @@ public class MyEndpoint {
 
             String createdUserName = (String) newlyCreatedUser.getProperty("userName");
             String createdPassWord = (String) newlyCreatedUser.getProperty("passWord");
+            String createdFullName = (String) newlyCreatedUser.getProperty("fullname");
+            String createdCity = (String) newlyCreatedUser.getProperty("city");
+            String createdPhone = (String) newlyCreatedUser.getProperty("phone");
 
             MyBean response = new MyBean();
             //response.setData(tempKey + " key created!" + " and username: " + createdUserName);
 
-            response.setData("Username: " + createdUserName + ". Password: " + createdPassWord);
+            response.setData("Username: " + createdUserName + ". Password: " + createdPassWord + ". Name: " + createdFullName + ". City: " + createdCity + ". Phone: " + createdPhone);
+            //response.setData("Username: " + createdUserName + ". Password: " + createdPassWord);
 
             return response;
         //}

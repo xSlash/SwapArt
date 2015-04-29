@@ -50,7 +50,8 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 
             try {
                 //return myApiService.nameToX(name).execute().getData();
-                return myApiService.storeObject("someuser1", "somepassword2").execute().getData();
+                return myApiService.storeObject("someuser1", "somepassword2", "somename2", "somecity2", "somephone2").execute().getData();
+                //return myApiService.storeObject("someuser1", "somepassword2").execute().getData();
 
             } catch (IOException e) {
                 return e.getMessage();
@@ -59,7 +60,8 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
         else {
             try {
                 //return myApiService.nameToX(name).execute().getData();
-                return myApiService.storeObject("testUser2", "testPW2").execute().getData();
+                return myApiService.storeObject("testUser2", "testPW2", "testName2", "testCity2", "testPhone2").execute().getData();
+                //return myApiService.storeObject("testUser2", "testPW2").execute().getData();
 
             } catch (IOException e) {
                 return e.getMessage();
