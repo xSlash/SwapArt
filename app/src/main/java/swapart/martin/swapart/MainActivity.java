@@ -36,6 +36,12 @@ public class MainActivity extends Activity {
                 MainActivity.this.startActivity(new Intent(MainActivity.this, GalleryActivity.class));
             }
         });
+        findViewById(R.id.loginButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, LogInActivity.class));
+            }
+        });
 
         /*findViewById(R.id.testbt).setOnClickListener((v) -> {
             new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Martin"));

@@ -13,5 +13,6 @@
     <string name="title_activity_take_photo">takePhoto</string>
     <string name="title_activity_find_art">FindArt</string>
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_log_in">LogInActivity</string>
 
 </resources>

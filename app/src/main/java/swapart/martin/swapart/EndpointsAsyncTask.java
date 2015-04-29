@@ -67,6 +67,17 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
                 return e.getMessage();
             }
         }
+        else if (name.equals("logUserIn")) {
+
+            try {
+                //return myApiService.storeObject("testUser2", "testPW2", "testName2", "testCity2", "testPhone2").execute().getData();
+                return myApiService.checkLogin("User1","Password1").execute().getData();
+
+
+            } catch (IOException e) {
+                return e.getMessage();
+            }
+        }
         else {
             try {
                 //return myApiService.nameToX(name).execute().getData();

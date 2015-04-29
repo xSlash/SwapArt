@@ -49,9 +49,29 @@ public class MyEndpoint {
     }
 
     @ApiMethod(name = "checkLogin")
-    public MyBean checkLogin(@Named("username") String username, @Named("password") String password) {
+    public MyBean checkLogin(@Named("username") String username, @Named("password") String password) throws EntityNotFoundException {
+
         MyBean response = new MyBean();
-        response.setData("x" + username + "x");
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+
+
+        Entity createUser = new Entity("Users", username);
+        Key tempKey = createUser.getKey();
+
+
+        Entity newlyCreatedUser = datastore.get(tempKey);
+
+
+        String createdUserName = (String) newlyCreatedUser.getProperty("userName");
+        String createdPassWord = (String) newlyCreatedUser.getProperty("passWord");
+
+        if (!createdPassWord.equals(password)) {
+            response.setData("Password not correct");
+        }
+        else {
+            response.setData("Logged in as: " + username);
+        }
+
 
         return response;
 
