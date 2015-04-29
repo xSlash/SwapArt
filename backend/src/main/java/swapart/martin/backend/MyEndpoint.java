@@ -48,13 +48,19 @@ public class MyEndpoint {
         return response;
     }
 
+    @ApiMethod(name = "checkLogin")
+    public MyBean checkLogin(@Named("username") String username, @Named("password") String password) {
+        MyBean response = new MyBean();
+        response.setData("x" + username + "x");
+
+        return response;
+    }
+
     @ApiMethod(name = "storeObject")
     public MyBean storeObject(@Named("username") String username, @Named("password") String password, @Named("name") String name, @Named("city") String city, @Named("phone") String phone) throws EntityNotFoundException {
     //public MyBean storeObject(@Named("username") String username, @Named("password") String password) throws EntityNotFoundException {
 
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-
-
 
         /*Entity newuser = new Entity("Users", username);
 
