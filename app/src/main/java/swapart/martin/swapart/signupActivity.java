@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -46,6 +47,8 @@ public class signupActivity extends Activity {
                 editor.putString("City", city.getText().toString());
                 editor.putString("Phone", phone.getText().toString());
 
+
+
                 editor.commit();
 
                 //retrieve saved User preferences (name, city etc)
@@ -55,6 +58,7 @@ public class signupActivity extends Activity {
                 String prefs_name = prefs.getString("Name", "no name chosen");
                 String prefs_city = prefs.getString("City", "no city chosen");
                 String prefs_phone = prefs.getString("phone", "no name chosen");*/
+
 
                 //EndpointsAsyncTask eat = ;
                 //new EndpointsAsyncTask().execute(new Pair<Context, String>(context, "createUser"));

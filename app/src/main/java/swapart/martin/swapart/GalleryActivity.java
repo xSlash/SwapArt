@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.util.Pair;
 import android.view.Menu;
@@ -18,7 +20,11 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import swapart.martin.swapartmockup.R;
 
@@ -40,7 +46,33 @@ public class GalleryActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
 
-        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "createUser"));
+        //new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "createUser"));
+
+        SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
+        int size = prefs.getInt("arrayListSize", 0);
+
+        Toast.makeText(context, "Size: " + Integer.toString(size), Toast.LENGTH_LONG).show();
+
+
+
+
+        if (size > 0) {
+            for(int i = 0;i<size;i++) {
+                String json = prefs.getString("StoredArtObjectArrayList_"+i, "");
+                Gson gson = new Gson();
+                ArtObject AO = gson.fromJson(json, ArtObject.class);
+                ArtObjectArrayList.add(AO); //Adding every ArtObject to our ArrayList
+
+            }
+
+            listview = (ListView) findViewById(R.id.artObjectlistView);
+            //listview.setAdapter(new ArtObjectAdapter(GalleryActivity.this, new String[]{ title }, imageBitmap));
+            listview.setAdapter(new ArtObjectAdapter(GalleryActivity.this, ArtObjectArrayList));
+
+
+        }
+
+
 
         findViewById(R.id.matchesButton).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,13 +157,36 @@ public class GalleryActivity extends Activity {
 
                     ArtObjectArrayList.add(new ArtObject(title, artist, year, dimensions, type, imageBitmap));
 
-                    Toast.makeText(context, "ArtObject count: " + ArtObjectArrayList.size(), Toast.LENGTH_LONG).show();
+
 
                     //ArtObjectArrayList.indexOf(0)
 
                     listview = (ListView) findViewById(R.id.artObjectlistView);
                     //listview.setAdapter(new ArtObjectAdapter(GalleryActivity.this, new String[]{ title }, imageBitmap));
                     listview.setAdapter(new ArtObjectAdapter(GalleryActivity.this, ArtObjectArrayList));
+
+                    SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
+
+                    Gson gson = new Gson();
+
+                    for (int i = 0; i < ArtObjectArrayList.size(); i++)
+                    {
+                        String json = gson.toJson(ArtObjectArrayList.get(i));
+                        editor.putString("StoredArtObjectArrayList_"+i, json);
+
+                    }
+
+                    editor.putInt("arrayListSize" ,ArtObjectArrayList.size());
+
+                    editor.commit();
+
+                    SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
+                    int ALSize = prefs.getInt("arrayListSize", 0);
+
+                    Toast.makeText(context, "ArtObject count: " + ArtObjectArrayList.size() + ". Stored:" + Integer.toString(ALSize), Toast.LENGTH_LONG).show();
+
+
+
 
                     /*Toast.makeText(GalleryActivity.this,"Title: " + title, Toast.LENGTH_LONG);
 

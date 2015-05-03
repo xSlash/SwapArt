@@ -3,6 +3,7 @@ package swapart.martin.swapart;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.Menu;
@@ -18,6 +19,23 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        /* Testing
+        SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
+
+        int size = prefs.getInt("arrayListSize", 0);
+
+        if (size == 0) {
+            SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
+            editor.putInt("arrayListSize", 0);
+            editor.commit();
+        }*/
+
+        SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
+        editor.putInt("arrayListSize", 0);
+        editor.commit();
+
 
         //new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "createUser"));
 
