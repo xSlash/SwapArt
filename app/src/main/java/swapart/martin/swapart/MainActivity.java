@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
 
-        /* Testing
+
         SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
 
         int size = prefs.getInt("arrayListSize", 0);
@@ -30,12 +30,12 @@ public class MainActivity extends Activity {
             SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
             editor.putInt("arrayListSize", 0);
             editor.commit();
-        }*/
+        }
 
-        SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
+        /*SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
         editor.putInt("arrayListSize", 0);
         editor.commit();
-
+        */
 
         //new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "createUser"));
 

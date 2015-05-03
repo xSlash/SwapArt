@@ -48,6 +48,8 @@ public class GalleryActivity extends Activity {
 
         //new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "createUser"));
 
+
+        //Jacob - Her!!!
         SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
         int size = prefs.getInt("arrayListSize", 0);
 
@@ -65,12 +67,15 @@ public class GalleryActivity extends Activity {
 
             }
 
-            listview = (ListView) findViewById(R.id.artObjectlistView);
-            //listview.setAdapter(new ArtObjectAdapter(GalleryActivity.this, new String[]{ title }, imageBitmap));
-            listview.setAdapter(new ArtObjectAdapter(GalleryActivity.this, ArtObjectArrayList));
+            //listview = (ListView) findViewById(R.id.artObjectlistView);
+
+            //listview.setAdapter(new ArtObjectAdapter(this, ArtObjectArrayList));
 
 
         }
+        //Til her!!!
+
+
 
 
 
@@ -180,10 +185,12 @@ public class GalleryActivity extends Activity {
 
                     editor.commit();
 
-                    SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
-                    int ALSize = prefs.getInt("arrayListSize", 0);
+                    //SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
+                    //int ALSize = prefs.getInt("arrayListSize", 0);
 
-                    Toast.makeText(context, "ArtObject count: " + ArtObjectArrayList.size() + ". Stored:" + Integer.toString(ALSize), Toast.LENGTH_LONG).show();
+                    //Toast.makeText(context, "ArtObject count: " + ArtObjectArrayList.size() + ". Stored:" + Integer.toString(size), Toast.LENGTH_LONG).show();
+
+                    Toast.makeText(context, "ArtObject count: " + ArtObjectArrayList.size() + ".", Toast.LENGTH_LONG).show();
 
 
 
