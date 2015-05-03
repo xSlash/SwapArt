@@ -61,11 +61,13 @@
             android:layout_height="wrap_content"
             android:id="@+id/imageView10"
             android:src="@drawable/picture1"
-            android:layout_marginLeft="61dp"
-            android:layout_marginStart="61dp"
-            android:layout_centerVertical="true"
+            android:layout_alignTop="@+id/Matches_likedPicture"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/imageView11"
+            android:layout_toStartOf="@+id/imageView11"
+            android:layout_marginRight="50dp" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -78,13 +80,29 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView12"
+            android:id="@+id/Matches_likedPicture"
             android:src="@drawable/picture3"
-            android:layout_alignTop="@+id/imageView10"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/pictureText"
             android:layout_toRightOf="@+id/imageView11"
             android:layout_toEndOf="@+id/imageView11"
-            android:layout_marginLeft="47dp"
-            android:layout_marginStart="47dp" />
+            android:layout_marginLeft="50dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="sometext"
+            android:id="@+id/pictureText"
+            android:layout_marginTop="63dp"
+            android:gravity="center_horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/imageView11"
+            android:layout_toEndOf="@+id/imageView11" />
     </RelativeLayout>
 
 </RelativeLayout>

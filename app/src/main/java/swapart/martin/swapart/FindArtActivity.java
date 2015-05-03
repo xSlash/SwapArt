@@ -1,11 +1,16 @@
 package swapart.martin.swapart;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Random;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,6 +39,11 @@ import swapart.martin.swapartmockup.R;
 public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChangeListener{
 
     private ArrayList<String> al;
+    private ArrayList<String> likedImagesString = new ArrayList<>();
+    private ArrayList<ImageView> likedImageView = new ArrayList<>();
+    private ArrayList<Bitmap> likedBitmap = new ArrayList<>();
+    private int randnumber;
+
     private ArrayAdapter<String> arrayAdapter;
     private int i = 9;
     private final Context context = this;
@@ -69,6 +79,7 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
 
                 Random r = new Random();
                 int randomnumber = r.nextInt(5);
+                randnumber = randomnumber;
 
                 billede.setImageResource(R.drawable.art1 + randomnumber );
                 return v;
@@ -98,7 +109,47 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
 
             @Override
             public void onRightCardExit(Object dataObject) {
-                makeToast(FindArtActivity.this, "Right!");
+                //Images the user likes
+
+                String temp = (String) dataObject;
+                /*likedImagesString.add(temp);
+                ImageView img = (ImageView) findViewById(R.id.billede);
+                likedImageView.add(img);
+                Drawable draw = img.getDrawable();
+
+
+                Bitmap bitmap = ((BitmapDrawable)img.getDrawable()).getBitmap();
+                likedBitmap.add(bitmap);
+
+                //arrayAdapter.getView(0, R.layout.swipeart_element, getParent());
+
+
+
+                FileOutputStream out = null;
+                try {
+                    out = new FileOutputStream("imageyoulike.png");
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, out); // bmp is your Bitmap instance
+                    // PNG is a lossless format, the compression factor (100) is ignored
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    try {
+                        if (out != null) {
+                            out.close();
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }*/ //End of try
+
+                SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
+                editor.putInt("likedImageNumber", randnumber);
+                editor.putString("likedImageText", temp);
+                editor.commit();
+
+                makeToast(FindArtActivity.this, "Right!" + " + " + Integer.toString(randnumber));
+
+                startActivity(new Intent(FindArtActivity.this, MatchesActivity.class));
             }
 
             @Override
