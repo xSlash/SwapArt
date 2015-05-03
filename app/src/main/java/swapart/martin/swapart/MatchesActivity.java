@@ -66,6 +66,8 @@ public class MatchesActivity extends Activity {
 
         ImageView myImage = (ImageView) findViewById(R.id.Matches_likedPicture);
         myImage.setImageResource(R.drawable.art1 + imgNumber);
+
+
     }
 
 
