@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Swapart"
+        android:text="SwapArt"
         android:id="@+id/textView8"
         android:gravity="center"
         android:layout_alignParentTop="true"
@@ -38,7 +38,8 @@
         android:layout_alignParentStart="true"
         android:weightSum="1"
         android:id="@+id/midleLL"
-        android:layout_above="@+id/lowerLL">
+        android:layout_above="@+id/lowerLL"
+        android:background="@drawable/main_signup_button">
 
 
 
@@ -47,8 +48,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/artObjectlistView"
             android:layout_weight="1"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/main_signup_button" />
+            android:layout_marginTop="10dp" />
 
     </LinearLayout>
 
@@ -81,10 +81,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView3"
         android:layout_alignParentTop="true"
-        android:layout_above="@+id/midleLL"
         android:layout_alignRight="@+id/midleLL"
         android:layout_alignEnd="@+id/midleLL"
-        android:src="@drawable/menuicon2" />
+        android:src="@drawable/menuicon2"
+        android:layout_alignBottom="@+id/textView8" />
 
     <ImageButton
         android:layout_width="wrap_content"

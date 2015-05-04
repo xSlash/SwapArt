@@ -64,8 +64,9 @@ public class MatchesActivity extends Activity {
         SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
         int imgNumber = prefs.getInt("likedImageNumber", 0);
 
-        ImageView myImage = (ImageView) findViewById(R.id.Matches_likedPicture);
-        myImage.setImageResource(R.drawable.art1 + imgNumber);
+        //Here
+        //ImageView myImage = (ImageView) findViewById(R.id.Matches_likedPicture);
+        //myImage.setImageResource(R.drawable.art1 + imgNumber);
 
 
     }
