@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
@@ -22,6 +23,8 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -54,11 +57,53 @@ public class GalleryActivity extends Activity {
         int size = prefs.getInt("arrayListSize", 0);
 
         Toast.makeText(context, "Size: " + Integer.toString(size), Toast.LENGTH_LONG).show();
+        if (size > 0)
+        {
+            for (int i = 1; i <= size; i++)
+            {
+                String tmpTitle = prefs.getString("title_"+i, "N/A");
+                String tmpArtist = prefs.getString("artist_"+i, "N/A");
+                String tmpYear = prefs.getString("year_"+i, "N/A");
+                String tmpDimension = prefs.getString("dimension_"+i, "N/A");
+                String tmpType = prefs.getString("type_"+i, "N/A");
+
+                //Getting image
+                Bitmap tmpBitmap;
+
+                String name = "savedImage" + i + ".jpg";
+                try{
+                    FileInputStream fis = context.openFileInput(name);
+                    Bitmap b = BitmapFactory.decodeStream(fis);
+                    fis.close();
+                    tmpBitmap = b;
+                    ArtObjectArrayList.add(new ArtObject(tmpTitle, tmpArtist, tmpYear, tmpDimension, tmpType, b));
+                }
+                catch(Exception e){
+                    e.printStackTrace();
+                }
+
+                listview = (ListView) findViewById(R.id.artObjectlistView);
+
+                listview.setAdapter(new ArtObjectAdapter(GalleryActivity.this, ArtObjectArrayList));
 
 
 
 
-        if (size > 0) {
+
+                /*
+                editor.putString("title_"+i, title);
+                    editor.putString("artist_"+i, artist);
+                    editor.putString("year_"+i, year);
+                    editor.putString("dimension_"+i, dimensions);
+                    editor.putString("type_"+i, type);
+                 */
+
+            }
+        }
+
+
+
+        /*if (size > 0) {
             for(int i = 0;i<size;i++) {
                 String json = prefs.getString("StoredArtObjectArrayList_"+i, "");
                 Gson gson = new Gson();
@@ -72,7 +117,7 @@ public class GalleryActivity extends Activity {
             //listview.setAdapter(new ArtObjectAdapter(this, ArtObjectArrayList));
 
 
-        }
+        }*/
         //Til her!!!
 
 
@@ -170,7 +215,33 @@ public class GalleryActivity extends Activity {
                     //listview.setAdapter(new ArtObjectAdapter(GalleryActivity.this, new String[]{ title }, imageBitmap));
                     listview.setAdapter(new ArtObjectAdapter(GalleryActivity.this, ArtObjectArrayList));
 
+                    //Save data to file.
+                    int i = ArtObjectArrayList.size();
+
+                    String name = "savedImage" + i + ".jpg";
+                    FileOutputStream out;
+                    try {
+                        out = context.openFileOutput(name, Context.MODE_PRIVATE);
+                        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
+                        out.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
                     SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
+                    editor.putString("title_"+i, title);
+                    editor.putString("artist_"+i, artist);
+                    editor.putString("year_"+i, year);
+                    editor.putString("dimension_"+i, dimensions);
+                    editor.putString("type_"+i, type);
+                    editor.putInt("arrayListSize" ,ArtObjectArrayList.size());
+
+                    editor.commit();
+
+
+
+                    //Shared start
+                    /*SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
 
                     Gson gson = new Gson();
 
@@ -183,7 +254,8 @@ public class GalleryActivity extends Activity {
 
                     editor.putInt("arrayListSize" ,ArtObjectArrayList.size());
 
-                    editor.commit();
+                    editor.commit();*/
+                    //Shared end
 
                     //SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
                     //int ALSize = prefs.getInt("arrayListSize", 0);
