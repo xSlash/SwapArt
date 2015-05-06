@@ -239,38 +239,7 @@ public class GalleryActivity extends Activity {
                     editor.commit();
 
 
-
-                    //Shared start
-                    /*SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
-
-                    Gson gson = new Gson();
-
-                    for (int i = 0; i < ArtObjectArrayList.size(); i++)
-                    {
-                        String json = gson.toJson(ArtObjectArrayList.get(i));
-                        editor.putString("StoredArtObjectArrayList_"+i, json);
-
-                    }
-
-                    editor.putInt("arrayListSize" ,ArtObjectArrayList.size());
-
-                    editor.commit();*/
-                    //Shared end
-
-                    //SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
-                    //int ALSize = prefs.getInt("arrayListSize", 0);
-
-                    //Toast.makeText(context, "ArtObject count: " + ArtObjectArrayList.size() + ". Stored:" + Integer.toString(size), Toast.LENGTH_LONG).show();
-
                     Toast.makeText(context, "ArtObject count: " + ArtObjectArrayList.size() + ".", Toast.LENGTH_LONG).show();
-
-
-
-
-                    /*Toast.makeText(GalleryActivity.this,"Title: " + title, Toast.LENGTH_LONG);
-
-                    Button bt = (Button) findViewById(R.id.test_button);
-                    bt.setText(title);*/
 
                     dialog.dismiss();
 

@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -226,8 +227,12 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
     @OnClick(R.id.settingsFindArt)
     public void startActivity() {
         final Dialog dialog = new Dialog(context);
+
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.activity_settings);
-        dialog.setTitle("Menu");
+
+        //dialog.setTitle("Menu");
 
         Button updateButton = (Button) dialog.findViewById(R.id.checkForUpdates);
         updateButton.setOnClickListener(new View.OnClickListener() {
