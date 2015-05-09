@@ -20,11 +20,10 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         Mint.initAndStartSession(MainActivity.this, "a882fabc");
 
-
+        setContentView(R.layout.activity_main);
 
         SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
 
