@@ -39,7 +39,9 @@
         android:weightSum="1"
         android:id="@+id/midleLL"
         android:layout_above="@+id/lowerLL"
-        android:background="@drawable/main_signup_button">
+        android:background="@drawable/main_signup_button"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="10dp">
 
 
 
@@ -48,7 +50,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/artObjectlistView"
             android:layout_weight="1"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
 
     </LinearLayout>
 
@@ -116,7 +119,8 @@
 
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_weight="0.33" />
+            android:layout_weight="0.33"
+            android:layout_marginLeft="10dp" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -124,7 +128,9 @@
             android:id="@+id/findArtButton"
             android:layout_weight="0.33"
             android:src="@drawable/searcharticon"
-            android:background="@drawable/main_signup_button" />
+            android:background="@drawable/main_signup_button"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -132,7 +138,8 @@
             android:id="@+id/matchesButton"
             android:layout_weight="0.33"
             android:background="@drawable/main_signup_button"
-            android:src="@drawable/matchicon" />
+            android:src="@drawable/matchicon"
+            android:layout_marginRight="10dp" />
 
     </LinearLayout>
 

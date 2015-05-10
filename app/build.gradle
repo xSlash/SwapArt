@@ -21,6 +21,7 @@ android {
 
 repositories {
     maven {
+        mavenCentral()
         url "https://mint.splunk.com/gradle/"
     }
 }
@@ -32,5 +33,6 @@ dependencies {
     compile 'com.jakewharton:butterknife:5.1.2'
     compile 'com.google.code.gson:gson:2.3'
     compile "com.splunk.mint:mint:4.2"
+    compile 'cn.pedant.sweetalert:library:1.3'
     compile project(path: ':backend', configuration: 'android-endpoints')
 }

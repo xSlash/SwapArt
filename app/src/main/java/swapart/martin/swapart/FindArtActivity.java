@@ -34,6 +34,7 @@ import java.util.ArrayList;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import swapart.martin.swapartmockup.R;
 
 
@@ -44,6 +45,9 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
     private ArrayList<ImageView> likedImageView = new ArrayList<>();
     private ArrayList<Bitmap> likedBitmap = new ArrayList<>();
     private int randnumber;
+
+    private String currentIMG;
+    private int IMGnumber;
 
     private ArrayAdapter<String> arrayAdapter;
     private int i = 9;
@@ -83,6 +87,10 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
                 randnumber = randomnumber;
 
                 billede.setImageResource(R.drawable.art1 + randomnumber );
+                if (position == 0) {
+                    currentIMG = "R.drawable.art" + Integer.toString(randomnumber + 1);
+                    IMGnumber = randomnumber+1;
+                }
                 return v;
             }
         };
@@ -177,6 +185,60 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
             public void onItemClicked(int itemPosition, Object dataObject) {
 
                 makeToast(FindArtActivity.this, "Clicked!");
+            }
+        });
+
+        final Context context = this;
+
+        findViewById(R.id.infoButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            //HERE
+                if (IMGnumber == 1) {
+                    new SweetAlertDialog(context)
+                            .setTitleText("Target" )
+                            .setContentText("By: Michelangelo \nYear: 520 \nSize: 0,8 m x 1,2 m \nType: Brush paint")
+                            .show();
+                }
+
+                else if (IMGnumber == 2) {
+                    new SweetAlertDialog(context)
+                            .setTitleText("The Forrest" )
+                            .setContentText("By: Donatello \nYear: 1436 \nSize: 0,6 m x 0,9 m \nType: Finger paint")
+                            .show();
+                }
+
+                else if (IMGnumber == 3) {
+                    new SweetAlertDialog(context)
+                            .setTitleText("Nature of China" )
+                            .setContentText("By: Raphael Sanzio \nYear: 1778 \n Size: 2,1 m x 2,5 m \nType: Oil")
+                            .show();
+                }
+
+                else if (IMGnumber == 4) {
+                    new SweetAlertDialog(context)
+                            .setTitleText("Night walk" )
+                            .setContentText("By: Leonardo da Vinci \nYear: 1346 \nSize: 1 m x 1,6 m \nType: Airbrush ")
+                            .show();
+                }
+
+                else if (IMGnumber == 5) {
+                    new SweetAlertDialog(context)
+                            .setTitleText("The Muse" )
+                            .setContentText("By: Pablo Picasso \nYear: 1996 \nSize: 1,5 m x 1,8 m \nType: Spray paint")
+                            .show();
+                }
+
+                else {
+                    new SweetAlertDialog(context)
+                            .setTitleText("Something went wrong! " )
+                                    //.setContentText("It's pretty, isn't it?")
+                                    //.setContentText(Integer.toString(k))
+                            .setContentText("We shouldn't end here")
+                            .show();
+                }
+
             }
         });
     }

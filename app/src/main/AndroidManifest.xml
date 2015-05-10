@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="swapart.martin.swapartmockup" >
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -9,6 +10,7 @@
         android:required="true" />
 
     <application
+        tools:replace="android:icon"
         android:allowBackup="true"
         android:icon="@drawable/swaparticon"
         android:theme="@style/AppTheme" >

@@ -4,27 +4,41 @@
     android:orientation="horizontal"
     android:layout_gravity="center_horizontal|bottom"
     android:layout_marginBottom="20dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:weightSum="1">
 
     <ImageButton
         android:id="@+id/left"
-        android:layout_margin="30dp"
         android:scaleType="centerInside"
         android:text="Left"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/selector_no_button"
-        android:src="@drawable/nomark"/>
+        android:src="@drawable/nomark"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="20dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/infoButton"
+        android:src="@drawable/infoicon"
+        android:background="@drawable/info_button_styling" />
 
     <ImageButton
         android:id="@+id/right"
-        android:layout_margin="30dp"
         android:scaleType="centerInside"
         android:text="Right"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/selector_yes_button"
-        android:src="@drawable/yesmark"/>
+        android:src="@drawable/yesmark"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="20dp" />
 
 </LinearLayout>
