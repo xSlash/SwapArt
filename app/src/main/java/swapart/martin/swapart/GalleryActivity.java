@@ -167,7 +167,7 @@ public class GalleryActivity extends Activity {
                 startActivity(new Intent(GalleryActivity.this, FindArtActivity.class));
             }
         });*/
-        findViewById(R.id.imageView3).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.settingsGallery).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(GalleryActivity.this, SettingsActivity.class));
