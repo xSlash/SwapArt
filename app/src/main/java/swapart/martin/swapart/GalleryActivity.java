@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import swapart.martin.swapartmockup.R;
 
 
@@ -99,6 +100,15 @@ public class GalleryActivity extends Activity {
                  */
 
             }
+        }
+
+        else {
+            new SweetAlertDialog(context, SweetAlertDialog.CUSTOM_IMAGE_TYPE)
+                    .setTitleText("Welcome to Swapart!" )
+                    .setContentText("To get started, take a picture, by pressing the camera icon, and add a picture to your gallery")
+                    .setCustomImage(R.drawable.cameraicon)
+                    .show();
+
         }
 
 
@@ -242,6 +252,14 @@ public class GalleryActivity extends Activity {
                     Toast.makeText(context, "ArtObject count: " + ArtObjectArrayList.size() + ".", Toast.LENGTH_LONG).show();
 
                     dialog.dismiss();
+
+                    if (ArtObjectArrayList.size() == 1) {
+                        new SweetAlertDialog(context, SweetAlertDialog.CUSTOM_IMAGE_TYPE)
+                                .setTitleText("Find art!" )
+                                .setContentText("To start searching for art, press the search icon at the bottom")
+                                .setCustomImage(R.drawable.searcharticon)
+                                .show();
+                    }
 
                 }
             });
