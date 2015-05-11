@@ -12,10 +12,14 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Gallery"
+        android:gravity="center_horizontal"
         android:id="@+id/gallerytv"
         android:layout_below="@+id/headLL"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:layout_alignLeft="@+id/midleLL"
+        android:layout_alignStart="@+id/midleLL"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <LinearLayout
 
