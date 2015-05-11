@@ -53,8 +53,6 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
     private ArrayAdapter<String> arrayAdapter;
     private int i = 9;
     private final Context context = this;
-    //private SeekBar distanceBar;
-    //private TextView distancetextview = (TextView)findViewById(R.id.distanceTV);
 
     @InjectView(R.id.frame) SwipeFlingAdapterView flingContainer;
 
