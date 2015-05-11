@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,11 +22,34 @@ import swapart.martin.swapartmockup.R;
 public class MatchesActivity extends Activity {
 
     Context context;
+    Bitmap b;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matches);
+
+        ImageView liked_image = (ImageView) findViewById(R.id.matches_liked_picture);
+
+        SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
+        int artNumber = prefs.getInt("likedNumber", 0);
+
+        liked_image.setImageResource(R.drawable.art1 + (artNumber-1));
+
+        /*String name = "likedImage.jpg";
+        try{
+            FileInputStream fis = context.openFileInput(name);
+            b = BitmapFactory.decodeStream(fis);
+            fis.close();
+
+            BitmapDrawable ob = new BitmapDrawable(getResources(), b);
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
+        billede.setImageBitmap(b);*/
 
         /*File imgFile = new File("imageyoulike.png");
 
@@ -61,8 +85,8 @@ public class MatchesActivity extends Activity {
 
         myImage.setImageBitmap(b);*/
 
-        SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
-        int imgNumber = prefs.getInt("likedImageNumber", 0);
+        //SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
+        //int imgNumber = prefs.getInt("likedImageNumber", 0);
 
         //Here
         //ImageView myImage = (ImageView) findViewById(R.id.Matches_likedPicture);

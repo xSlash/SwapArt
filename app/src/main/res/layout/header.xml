@@ -10,14 +10,15 @@
     android:background="@drawable/header_styling">
 
     <ImageButton
-        android:background="@null"
+        android:background="@drawable/header_buttons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/homeFindArt"
         android:src="@drawable/homeicon"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:layout_weight="0.10" />
+        android:layout_weight="0.10"
+        android:layout_margin="3dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,12 +30,13 @@
         android:layout_weight="0.80" />
 
     <ImageButton
-        android:background="@null"
+        android:background="@drawable/header_buttons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/settingsFindArt"
         android:layout_weight="0.10"
         android:src="@drawable/menuicon2"
         android:scaleType="centerInside"
-        android:adjustViewBounds="true" />
+        android:adjustViewBounds="true"
+        android:layout_margin="3dp" />
 </LinearLayout>

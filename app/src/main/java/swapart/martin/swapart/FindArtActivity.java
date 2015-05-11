@@ -48,6 +48,7 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
 
     private String currentIMG;
     private int IMGnumber;
+    private int IMGnumberOld;
 
     private ArrayAdapter<String> arrayAdapter;
     private int i = 9;
@@ -89,7 +90,27 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
                 billede.setImageResource(R.drawable.art1 + randomnumber );
                 if (position == 0) {
                     currentIMG = "R.drawable.art" + Integer.toString(randomnumber + 1);
+
+                    IMGnumberOld = IMGnumber;
                     IMGnumber = randomnumber+1;
+
+                    SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
+                    editor.putInt("likedNumber", IMGnumberOld);
+
+                    editor.commit();
+
+                    //Store current front Image
+                    /*Bitmap imageBitmap = ((BitmapDrawable)billede.getDrawable()).getBitmap();
+
+                    String name = "likedImage.jpg";
+                    FileOutputStream out;
+                    try {
+                        out = context.openFileOutput(name, Context.MODE_PRIVATE);
+                        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
+                        out.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }*/
                 }
                 return v;
             }
