@@ -475,7 +475,14 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
             @Override
             public void onClick(View v) {
 
-                final Dialog dialog2 = new Dialog(context);
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String shareBody = "Here is the share content body";
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(sharingIntent, "Share SwapArt via"));
+
+                /*final Dialog dialog2 = new Dialog(context);
                 dialog2.setContentView(R.layout.popup_share_swapart);
                 dialog2.setTitle("Share Swapart");
 
@@ -488,7 +495,7 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
                     }
                 });
 
-                dialog2.show();
+                dialog2.show();*/
 
             }
 
