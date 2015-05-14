@@ -12,6 +12,7 @@
 
     <include layout="@layout/buttons" />
 
-    <include layout="@layout/header" />
+    <include layout="@layout/header"
+        android:id="@+id/" />
 
 </merge>

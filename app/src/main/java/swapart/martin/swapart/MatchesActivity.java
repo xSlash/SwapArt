@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,13 +22,16 @@ import swapart.martin.swapartmockup.R;
 
 public class MatchesActivity extends Activity {
 
-    Context context;
+    final Context context = this;
     Bitmap b;
+    Bitmap tmpBitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matches);
+
+
 
         ImageView liked_image = (ImageView) findViewById(R.id.matches_liked_picture);
 
@@ -36,62 +40,22 @@ public class MatchesActivity extends Activity {
 
         liked_image.setImageResource(R.drawable.art1 + (artNumber-1));
 
-        /*String name = "likedImage.jpg";
+
+        String name = "savedImage1.jpg";
         try{
             FileInputStream fis = context.openFileInput(name);
-            b = BitmapFactory.decodeStream(fis);
+            Bitmap b = BitmapFactory.decodeStream(fis);
             fis.close();
-
-            BitmapDrawable ob = new BitmapDrawable(getResources(), b);
+            tmpBitmap = b;
 
         }
         catch(Exception e){
             e.printStackTrace();
         }
 
-        billede.setImageBitmap(b);*/
-
-        /*File imgFile = new File("imageyoulike.png");
-
-        if(imgFile.exists()){
-
-            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-
-            ImageView myImage = (ImageView) findViewById(R.id.Matches_likedPicture);
-
-            myImage.setImageBitmap(myBitmap);
-
-        }*/
-
-
-        /*Bitmap b = null;
-        FileInputStream fis;
-        try {
-            fis = openFileInput("imageyoulike.png");
-            b = BitmapFactory.decodeStream(fis);
-            fis.close();
-
-        }
-        catch (FileNotFoundException e) {
-            //Log.d(TAG, "file not found");
-            e.printStackTrace();
-        }
-        catch (IOException e) {
-            //Log.d(TAG, "io exception");
-            e.printStackTrace();
-        }
-
-        ImageView myImage = (ImageView) findViewById(R.id.Matches_likedPicture);
-
-        myImage.setImageBitmap(b);*/
-
-        //SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
-        //int imgNumber = prefs.getInt("likedImageNumber", 0);
-
-        //Here
-        //ImageView myImage = (ImageView) findViewById(R.id.Matches_likedPicture);
-        //myImage.setImageResource(R.drawable.art1 + imgNumber);
-
+        //Set own picture in matched art
+        ImageView own_image = (ImageView) findViewById(R.id.matches_own_picture);
+        own_image.setImageBitmap(tmpBitmap);
 
     }
 
