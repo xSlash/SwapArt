@@ -14,6 +14,7 @@ import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -193,8 +194,10 @@ public class GalleryActivity extends Activity {
 
             //Create popup
             final Dialog dialog = new Dialog(context);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setContentView(R.layout.gallery_popup_edit_art);
-            dialog.setTitle("Art information");
+
+            //dialog.setTitle("Art information");
 
             final ImageView mImageView = (ImageView) dialog.findViewById(R.id.popUpImg);
             mImageView.setImageBitmap(imageBitmap);
