@@ -48,6 +48,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 MainActivity.this.startActivity(new Intent(MainActivity.this, signupActivity.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
@@ -55,12 +56,14 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 MainActivity.this.startActivity(new Intent(MainActivity.this, GalleryActivity.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
         findViewById(R.id.loginButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, LogInActivity.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
