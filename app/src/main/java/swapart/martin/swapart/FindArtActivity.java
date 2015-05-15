@@ -66,14 +66,23 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
 
         al = new ArrayList<>();
 
-        al.add("picture 1");
+        /*al.add("picture 1");
         al.add("picture 2");
         al.add("picture 3");
         al.add("picture 4");
         al.add("picture 5");
         al.add("picture 6");
         al.add("picture 7");
-        al.add("picture 8");
+        al.add("picture 8");*/
+
+        al.add("");
+        al.add("");
+        al.add("");
+        al.add("");
+        al.add("");
+        al.add("");
+        al.add("");
+        al.add("");
 
         arrayAdapter = new ArrayAdapter<String>(this, R.layout.swipeart_element, R.id.art_element_image, al ) {
             @Override
@@ -183,7 +192,10 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
                 // Ask for more data here
-                al.add("picture ".concat(String.valueOf(i)));
+                //al.add("picture ".concat(String.valueOf(i)));
+
+                al.add("");
+
                 arrayAdapter.notifyDataSetChanged();
                 Log.d("LIST", "notified");
                 i++;
@@ -208,6 +220,8 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
         });
 
         final Context context = this;
+
+
 
         findViewById(R.id.infoButton).setOnClickListener(new View.OnClickListener() {
             @Override
