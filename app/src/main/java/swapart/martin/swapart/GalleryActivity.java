@@ -54,7 +54,6 @@ public class GalleryActivity extends Activity {
         //new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "createUser"));
 
 
-        //Jacob - Her!!!
         SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
         int size = prefs.getInt("arrayListSize", 0);
 

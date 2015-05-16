@@ -19,7 +19,8 @@ public class TermsConditionsActivity extends Activity {
         findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TermsConditionsActivity.this.startActivity(new Intent(TermsConditionsActivity.this, signupActivity.class));
+                //TermsConditionsActivity.this.startActivity(new Intent(TermsConditionsActivity.this, signupActivity.class));
+                finish();
             }
         });
     }
