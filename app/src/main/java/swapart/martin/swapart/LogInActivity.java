@@ -2,6 +2,7 @@ package swapart.martin.swapart;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Pair;
@@ -15,14 +16,14 @@ import swapart.martin.swapartmockup.R;
 
 public class LogInActivity extends ActionBarActivity {
 
-    //Context context;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
-        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "logUserIn"));
+
 
         //context = this;
 
@@ -33,17 +34,25 @@ public class LogInActivity extends ActionBarActivity {
                 EditText username = (EditText) findViewById(R.id.usernameLogInText);
                 EditText password = (EditText) findViewById(R.id.passwordLogInText);
 
+                SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
+                editor.putString("userlogin_username", username.getText().toString());
+                editor.putString("userlogin_password", password.getText().toString());
+                editor.putString("loginfo", "attemptToLogIn");
 
-                //MainActivity.this.startActivity(new Intent(MainActivity.this, signupActivity.class));
+                editor.commit();
+
+                //new EndpointsAsyncTask().execute(new Pair<Context, String>(context, "logUserIn"));
+
+                LogInActivity.this.startActivity(new Intent(LogInActivity.this, GalleryActivity.class));
             }
         });
 
-        findViewById(R.id.OKlogInButton).setOnClickListener(new View.OnClickListener() {
+        /*findViewById(R.id.OKlogInButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
-        });
+        });*/
     }
 
 

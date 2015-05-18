@@ -55,9 +55,31 @@ public class GalleryActivity extends Activity {
 
 
         SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
+
+        if (prefs.getString("loginfo", "nothing").equals("attemptToLogIn")) {
+
+            new EndpointsAsyncTask().execute(new Pair<Context, String>(context, "logUserIn"));
+
+            //Toast.makeText(context, "You attempted to login", Toast.LENGTH_LONG).show();
+
+            SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
+            editor.putString("loginfo", "nothing");
+            editor.commit();
+        }
+
+        else if (prefs.getString("loginfo", "nothing").equals("signup")) {
+
+            new EndpointsAsyncTask().execute(new Pair<Context, String>(context, "createUser"));
+
+            SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
+            editor.putString("loginfo", "nothing");
+            editor.commit();
+
+        }
+
         int size = prefs.getInt("arrayListSize", 0);
 
-        Toast.makeText(context, "Size: " + Integer.toString(size), Toast.LENGTH_LONG).show();
+        //Toast.makeText(context, "Size: " + Integer.toString(size), Toast.LENGTH_LONG).show();
         if (size > 0)
         {
             for (int i = 1; i <= size; i++)

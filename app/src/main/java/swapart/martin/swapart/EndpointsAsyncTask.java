@@ -23,8 +23,12 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
     private Context context;
 
 
+
     @Override
     protected String doInBackground(Pair<Context, String>... params) {
+
+        //this.context = Context;
+
         if (myApiService == null) {  // Only do this once
 
             /* For localhost
@@ -70,8 +74,17 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
         else if (name.equals("logUserIn")) {
 
             try {
+
+
+                SharedPreferences prefs = context.getSharedPreferences("User_Object", context.MODE_PRIVATE);
+                String tmpUser = prefs.getString("userlogin_username", "nothing");
+                String tmpPass = prefs.getString("userlogin_password", "nothing2");
+
+                return myApiService.checkLogin(tmpUser, tmpPass).execute().getData();
+
                 //return myApiService.storeObject("testUser2", "testPW2", "testName2", "testCity2", "testPhone2").execute().getData();
-                return myApiService.checkLogin("User1","Password1").execute().getData();
+
+                //return myApiService.checkLogin("User1","Password1").execute().getData();
 
 
             } catch (IOException e) {

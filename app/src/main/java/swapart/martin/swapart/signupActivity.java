@@ -47,6 +47,7 @@ public class signupActivity extends Activity {
                 editor.putString("City", city.getText().toString());
                 editor.putString("Phone", phone.getText().toString());
 
+                editor.putString("loginfo", "signup");
 
 
                 editor.commit();
