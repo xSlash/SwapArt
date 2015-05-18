@@ -72,6 +72,30 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
             }
         }
 
+        else if (name.equals("update")) {
+
+            try {
+
+
+                SharedPreferences prefs = context.getSharedPreferences("User_Object", context.MODE_PRIVATE);
+                String prefs_username = prefs.getString("Username", "no username chosen");
+                String prefs_password = prefs.getString("Password", "no password chosen");
+                String prefs_name = prefs.getString("Name", "no name chosen");
+                String prefs_city = prefs.getString("City", "no city chosen");
+                String prefs_phone = prefs.getString("Phone", "no phone chosen");
+
+                return myApiService.updateUser(prefs_username, prefs_password, prefs_name, prefs_city, prefs_phone).execute().getData();
+
+                //return myApiService.storeObject("testUser2", "testPW2", "testName2", "testCity2", "testPhone2").execute().getData();
+
+                //return myApiService.checkLogin("User1","Password1").execute().getData();
+
+
+            } catch (IOException e) {
+                return e.getMessage();
+            }
+        }
+
         else if (name.equals("storeUserGallery")) {
 
             try {
@@ -158,7 +182,9 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
             Toast.makeText(context, resultStringArray[0] + " - " + resultStringArray[1] + " - " + resultStringArray[2] + " - " + resultStringArray[3], Toast.LENGTH_LONG).show();
 
         }
+
         else {
+            //Print response (not a login)
             Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         }
 

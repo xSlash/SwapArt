@@ -145,5 +145,41 @@ public class MyEndpoint {
         //}
     }
 
+    @ApiMethod(name = "updateUser")
+    public MyBean updateUser(@Named("username") String username, @Named("password") String password, @Named("name") String name, @Named("city") String city, @Named("phone") String phone) throws EntityNotFoundException {
+        //public MyBean storeObject(@Named("username") String username, @Named("password") String password) throws EntityNotFoundException {
+
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+
+
+        Entity createUser = new Entity("Users", username);
+        createUser.setProperty("passWord", password);
+        createUser.setProperty("userName", username);
+        createUser.setProperty("fullname", name);
+        createUser.setProperty("city", city);
+        createUser.setProperty("phone", phone);
+
+
+        datastore.put(createUser);
+
+        Key tempKey = createUser.getKey();
+
+        Entity newlyCreatedUser = datastore.get(tempKey);
+
+
+        /*String createdUserName = (String) newlyCreatedUser.getProperty("userName");
+
+        String createdFullName = (String) newlyCreatedUser.getProperty("fullname");
+        String createdCity = (String) newlyCreatedUser.getProperty("city");
+        String createdPhone = (String) newlyCreatedUser.getProperty("phone");*/
+
+        MyBean response = new MyBean();
+
+        response.setData("User data updated");
+
+        return response;
+
+    }
+
 
 }

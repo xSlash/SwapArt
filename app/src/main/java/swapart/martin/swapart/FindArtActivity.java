@@ -14,6 +14,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -377,6 +378,8 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
                         editor.commit();
 
                         dialog2.dismiss();
+
+                        new EndpointsAsyncTask().execute(new Pair<Context, String>(context, "update"));
                     }
                 });
 
