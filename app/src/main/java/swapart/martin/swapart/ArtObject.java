@@ -15,8 +15,6 @@ public class ArtObject {
     private String type;
     private Bitmap img;
 
-
-
     public ArtObject(String Title, String Artist, String Year, String Dimensions, String Type, Bitmap Img) {
 
         this.title = Title;
@@ -41,5 +39,29 @@ public class ArtObject {
 
     public Bitmap getImage() {
         return img;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setArtist(String artist) {
+        this.artist = artist;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public void setDimensions(String dimensions) {
+        this.dimensions = dimensions;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setImg(Bitmap img) {
+        this.img = img;
     }
 }

@@ -10,98 +10,110 @@
     android:weightSum="1"
     android:background="@drawable/popup_styling">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_weight="0.33"
+        android:id="@+id/linearLayout3">
 
         <Button
             android:background="@drawable/main_signup_button"
             android:paddingLeft="35px"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
             android:drawableLeft="@drawable/profileicon"
             android:text="Profile"
             android:id="@+id/profileButton"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-
-            android:textAlignment="gravity"
-            android:singleLine="true"
-            android:layout_marginTop="50px"></Button>
+            android:layout_weight="0.5"
+            android:layout_margin="20dp"></Button>
 
         <Button
             android:background="@drawable/main_signup_button"
             android:paddingLeft="35px"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
             android:drawableLeft="@drawable/matchcriteriaicon"
             android:id="@+id/matchcriteriaButton"
-            android:layout_below="@+id/profileButton"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:text="Match criteria"
-            android:layout_marginTop="20dp" />
+            android:layout_weight="0.5"
+            android:layout_margin="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_weight="0.33"
+        android:id="@+id/linearLayout4">
 
         <Button
             android:background="@drawable/main_signup_button"
             android:paddingLeft="35px"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
             android:text="Contact us"
             android:drawableLeft="@drawable/contacticon"
             android:id="@+id/contactButton"
-            android:layout_below="@+id/matchcriteriaButton"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="20dp" />
+            android:layout_margin="20dp"
+            android:layout_weight="0.5"/>
 
         <Button
             android:background="@drawable/main_signup_button"
             android:paddingLeft="35px"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
             android:text="Share Swapart"
             android:drawableLeft="@drawable/shareicon"
             android:id="@+id/shareButton"
-            android:layout_below="@+id/contactButton"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp" />
+            android:layout_margin="20dp"
+            android:layout_weight="0.5"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_weight="0.33"
+        android:id="@+id/linearLayout5">
 
         <Button
             android:background="@drawable/main_signup_button"
             android:paddingLeft="35px"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
             android:text="Check for updates"
             android:drawableLeft="@drawable/updateicon"
             android:id="@+id/checkForUpdates"
-            android:layout_below="@+id/shareButton"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp" />
+            android:layout_weight="0.5"
+            android:layout_margin="20dp" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:background="@drawable/main_signup_button"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
             android:text="Close"
             android:id="@+id/closeSettings"
-            android:layout_below="@+id/checkForUpdates"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/main_signup_button" />
-    </RelativeLayout>
+            android:layout_weight="0.5"
+            android:layout_margin="20dp" />
+    </LinearLayout>
 
 </LinearLayout>

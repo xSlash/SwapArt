@@ -113,26 +113,6 @@ public class GalleryActivity extends Activity {
 
 
 
-        /*if (size > 0) {
-            for(int i = 0;i<size;i++) {
-                String json = prefs.getString("StoredArtObjectArrayList_"+i, "");
-                Gson gson = new Gson();
-                ArtObject AO = gson.fromJson(json, ArtObject.class);
-                ArtObjectArrayList.add(AO); //Adding every ArtObject to our ArrayList
-
-            }
-
-            //listview = (ListView) findViewById(R.id.artObjectlistView);
-
-            //listview.setAdapter(new ArtObjectAdapter(this, ArtObjectArrayList));
-
-
-        }*/
-        //Til her!!!
-
-
-
-
 
         findViewById(R.id.matchesButton).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -175,6 +155,7 @@ public class GalleryActivity extends Activity {
         });
 
     }
+
 
     //Start camera app
     private void dispatchTakePictureIntent() {
