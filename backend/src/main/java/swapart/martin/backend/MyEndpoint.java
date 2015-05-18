@@ -64,12 +64,15 @@ public class MyEndpoint {
 
         String createdUserName = (String) newlyCreatedUser.getProperty("userName");
         String createdPassWord = (String) newlyCreatedUser.getProperty("passWord");
+        String fetchedfullname = (String) newlyCreatedUser.getProperty("fullname");
+        String fetchedphone = (String) newlyCreatedUser.getProperty("phone");
+        String fetchedcity = (String) newlyCreatedUser.getProperty("city");
 
         if (!createdPassWord.equals(password)) {
             response.setData("Password not correct");
         }
         else {
-            response.setData("Logged in as: " + username);
+            response.setData(createdUserName + ":" + fetchedfullname + ":" + fetchedphone + ":" + fetchedcity);
         }
 
 
@@ -135,8 +138,8 @@ public class MyEndpoint {
             MyBean response = new MyBean();
             //response.setData(tempKey + " key created!" + " and username: " + createdUserName);
 
-            response.setData("Username: " + createdUserName + ". Password: " + createdPassWord + ". Name: " + createdFullName + ". City: " + createdCity + ". Phone: " + createdPhone);
-            //response.setData("Username: " + createdUserName + ". Password: " + createdPassWord);
+            //response.setData("Username: " + createdUserName + ". Password: " + createdPassWord + ". Name: " + createdFullName + ". City: " + createdCity + ". Phone: " + createdPhone);
+            response.setData("User created - " + createdUserName);
 
             return response;
         //}

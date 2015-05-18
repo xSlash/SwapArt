@@ -71,6 +71,30 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
                 return e.getMessage();
             }
         }
+
+        else if (name.equals("storeUserGallery")) {
+
+            try {
+
+
+                SharedPreferences prefs = context.getSharedPreferences("User_Object", context.MODE_PRIVATE);
+                String tmpUser = prefs.getString("userlogin_username", "nothing");
+                String tmpPass = prefs.getString("userlogin_password", "nothing2");
+
+                return myApiService.checkLogin(tmpUser, tmpPass).execute().getData();
+
+                //return myApiService.storeObject("testUser2", "testPW2", "testName2", "testCity2", "testPhone2").execute().getData();
+
+                //return myApiService.checkLogin("User1","Password1").execute().getData();
+
+
+            } catch (IOException e) {
+                return e.getMessage();
+            }
+        }
+
+
+
         else if (name.equals("logUserIn")) {
 
             try {
@@ -91,6 +115,7 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
                 return e.getMessage();
             }
         }
+
         else {
             try {
                 //return myApiService.nameToX(name).execute().getData();
@@ -105,7 +130,38 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 
     @Override
     protected void onPostExecute(String result) {
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        /*if (result.equals("Password not correct")) {
+            Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        }
+        else if (result.substring(0, 11).equals("User created")){
+
+        }*/
+
+        if(result.contains(":")) {
+            //Login successfull
+            String[] resultStringArray = result.split(":");
+
+            SharedPreferences.Editor editor = context.getSharedPreferences("User_Object", context.MODE_PRIVATE).edit();
+            editor.putString("Username", resultStringArray[0]);
+            //editor.putString("Password", <We dont retrieve password>);
+
+            editor.putString("Name", resultStringArray[1]);
+            editor.putString("Phone", resultStringArray[2]);
+            editor.putString("City", resultStringArray[3]);
+
+            editor.putString("loginfo", "signedin");
+
+
+            editor.commit();
+
+            //Username - Name - Phone - City
+            Toast.makeText(context, resultStringArray[0] + " - " + resultStringArray[1] + " - " + resultStringArray[2] + " - " + resultStringArray[3], Toast.LENGTH_LONG).show();
+
+        }
+        else {
+            Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        }
+
     }
 }
 
