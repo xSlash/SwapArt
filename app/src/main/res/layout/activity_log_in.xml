@@ -60,14 +60,15 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:hint="Username"
+            android:layout_gravity="center"
             android:ems="10"
             android:id="@+id/usernameLogInText"
-            android:layout_marginTop="113dp"
             android:layout_below="@+id/headLLMain"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="100dp" />
 
         <EditText
             android:layout_width="fill_parent"
@@ -78,7 +79,8 @@
             android:layout_below="@+id/usernameLogInText"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:hint="Password" />
+            android:hint="Password"
+            android:layout_marginTop="10dp" />
     </LinearLayout>
 
     <LinearLayout
