@@ -36,7 +36,7 @@
             android:background="@drawable/header_buttons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/homeFindArt"
+            android:id="@+id/homeMatches"
             android:src="@drawable/newhomeicon"
             android:scaleType="centerInside"
             android:adjustViewBounds="true"

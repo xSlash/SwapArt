@@ -67,6 +67,13 @@ public class MatchesActivity extends Activity {
         ImageView own_image = (ImageView) findViewById(R.id.matches_own_picture);
         own_image.setImageBitmap(tmpBitmap);
 
+        findViewById(R.id.homeMatches).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MatchesActivity.this.startActivity(new Intent(MatchesActivity.this, GalleryActivity.class));
+            }
+        });
+
         findViewById(R.id.settingsMatches).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
