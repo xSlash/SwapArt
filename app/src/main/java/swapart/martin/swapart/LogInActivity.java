@@ -27,6 +27,14 @@ public class LogInActivity extends Activity {
 
 
         //context = this;
+        findViewById(R.id.cancelLogInbutton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+                overridePendingTransition(R.anim.popup_show, R.anim.popup_hide);
+            }
+        });
 
         findViewById(R.id.OKlogInButton).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +53,7 @@ public class LogInActivity extends Activity {
                 //new EndpointsAsyncTask().execute(new Pair<Context, String>(context, "logUserIn"));
 
                 LogInActivity.this.startActivity(new Intent(LogInActivity.this, GalleryActivity.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
@@ -56,6 +65,11 @@ public class LogInActivity extends Activity {
         });*/
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.popup_show, R.anim.popup_hide);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

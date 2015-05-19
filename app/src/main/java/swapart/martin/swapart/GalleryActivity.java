@@ -143,6 +143,7 @@ public class GalleryActivity extends Activity {
             @Override
             public void onClick(View v) {
                 GalleryActivity.this.startActivity(new Intent(GalleryActivity.this, MatchesActivity.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
@@ -163,6 +164,7 @@ public class GalleryActivity extends Activity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(GalleryActivity.this, FindArtActivity.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 
@@ -550,6 +552,11 @@ public class GalleryActivity extends Activity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.popup_show, R.anim.popup_hide);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

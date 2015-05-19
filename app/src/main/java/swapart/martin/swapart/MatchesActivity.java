@@ -67,10 +67,20 @@ public class MatchesActivity extends Activity {
         ImageView own_image = (ImageView) findViewById(R.id.matches_own_picture);
         own_image.setImageBitmap(tmpBitmap);
 
+        findViewById(R.id.chatButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String number = "12345678";
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", number, null)));
+            }
+        });
+
         findViewById(R.id.homeMatches).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MatchesActivity.this.startActivity(new Intent(MatchesActivity.this, GalleryActivity.class));
+                //MatchesActivity.this.startActivity(new Intent(MatchesActivity.this, GalleryActivity.class));
+                finish();
+                overridePendingTransition(R.anim.popup_show, R.anim.popup_hide);
             }
         });
 
@@ -300,6 +310,11 @@ public class MatchesActivity extends Activity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.popup_show, R.anim.popup_hide);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

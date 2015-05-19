@@ -52,13 +52,6 @@ public class MainActivity extends Activity {
             }
         });
 
-        findViewById(R.id.skipButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MainActivity.this.startActivity(new Intent(MainActivity.this, GalleryActivity.class));
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-            }
-        });
         findViewById(R.id.loginButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +59,15 @@ public class MainActivity extends Activity {
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
+
+        findViewById(R.id.skipButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.startActivity(new Intent(MainActivity.this, GalleryActivity.class));
+                overridePendingTransition(R.anim.popup_show, R.anim.popup_hide);
+            }
+        });
+
 
         /*findViewById(R.id.testbt).setOnClickListener((v) -> {
             new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Martin"));

@@ -27,8 +27,10 @@ public class signupActivity extends Activity {
             @Override
             public void onClick(View v) {
                 signupActivity.this.startActivity(new Intent(signupActivity.this, TermsConditionsActivity.class));
+
             }
         });
+
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,8 +69,15 @@ public class signupActivity extends Activity {
 
 
                 signupActivity.this.startActivity(new Intent(signupActivity.this, GalleryActivity.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.popup_show, R.anim.popup_hide);
     }
 
     //First task will be here. Test GitHub changes

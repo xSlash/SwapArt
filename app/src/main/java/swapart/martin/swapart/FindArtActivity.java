@@ -188,6 +188,7 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
                 makeToast(FindArtActivity.this, "Right!" + " + " + Integer.toString(randnumber));
 
                 startActivity(new Intent(FindArtActivity.this, MatchesActivity.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
 
             @Override
@@ -318,7 +319,10 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
     }
 
     @OnClick(R.id.homeFindArt)
-    public void dismissActivity() { finish();}
+    public void dismissActivity() {
+        finish();
+        overridePendingTransition(R.anim.popup_show, R.anim.popup_hide);
+    }
 
     @OnClick(R.id.settingsFindArt)
     public void startActivity() {
@@ -555,6 +559,12 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
 
         dialog.show();
         //startActivity(new Intent(FindArtActivity.this, SettingsActivity.class));
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.popup_show, R.anim.popup_hide);
     }
 
     @Override
