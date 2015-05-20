@@ -82,67 +82,37 @@ public class MyEndpoint {
 
     @ApiMethod(name = "storeObject")
     public MyBean storeObject(@Named("username") String username, @Named("password") String password, @Named("name") String name, @Named("city") String city, @Named("phone") String phone) throws EntityNotFoundException {
-    //public MyBean storeObject(@Named("username") String username, @Named("password") String password) throws EntityNotFoundException {
 
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 
-        /*Entity newuser = new Entity("Users", username);
+        //Create user
+        Entity createUser = new Entity("Users", username);
 
-        Key keyone = newuser.getKey();
+        createUser.setProperty("userName", username);
+        createUser.setProperty("passWord", password);
+        createUser.setProperty("fullname", name);
+        createUser.setProperty("city", city);
+        createUser.setProperty("phone", phone);
 
+        datastore.put(createUser);
 
-        if (datastore.get(newuser.getKey()).getKey() == keyone) {
+        Key tempKey = createUser.getKey();
 
+        Entity newlyCreatedUser = datastore.get(tempKey);
 
+        //Retrieve user data
+        String createdUserName = (String) newlyCreatedUser.getProperty("userName");
+        String createdPassWord = (String) newlyCreatedUser.getProperty("passWord");
+        String createdFullName = (String) newlyCreatedUser.getProperty("fullname");
+        String createdCity = (String) newlyCreatedUser.getProperty("city");
+        String createdPhone = (String) newlyCreatedUser.getProperty("phone");
 
-            MyBean response = new MyBean();
-            //response.setData(tempKey + " key created!" + " and username: " + createdUserName);
+        MyBean response = new MyBean();
 
-            response.setData("User already exist!");
+        response.setData("User created - " + createdUserName);
 
-            return response;
+        return response;
 
-        }
-
-        else {*/
-
-            Entity createUser = new Entity("Users", username);
-
-            createUser.setProperty("userName", username);
-            createUser.setProperty("passWord", password);
-            createUser.setProperty("fullname", name);
-            createUser.setProperty("city", city);
-            createUser.setProperty("phone", phone);
-
-            //com.google.appengine.api.datastore.Key newuserKey = newuser.getKey();
-
-            //Date hireDate = new Date();
-            //employee.setProperty("hireDate", hireDate);
-
-            //employee.setProperty("attendedHrTraining", true);
-
-
-            datastore.put(createUser);
-
-            Key tempKey = createUser.getKey();
-
-            Entity newlyCreatedUser = datastore.get(tempKey);
-
-
-            String createdUserName = (String) newlyCreatedUser.getProperty("userName");
-            String createdPassWord = (String) newlyCreatedUser.getProperty("passWord");
-            String createdFullName = (String) newlyCreatedUser.getProperty("fullname");
-            String createdCity = (String) newlyCreatedUser.getProperty("city");
-            String createdPhone = (String) newlyCreatedUser.getProperty("phone");
-
-            MyBean response = new MyBean();
-            //response.setData(tempKey + " key created!" + " and username: " + createdUserName);
-
-            //response.setData("Username: " + createdUserName + ". Password: " + createdPassWord + ". Name: " + createdFullName + ". City: " + createdCity + ". Phone: " + createdPhone);
-            response.setData("User created - " + createdUserName);
-
-            return response;
-        //}
     }
 
     @ApiMethod(name = "updateUser")

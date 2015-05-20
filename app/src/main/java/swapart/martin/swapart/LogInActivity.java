@@ -46,6 +46,10 @@ public class LogInActivity extends Activity {
                 SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
                 editor.putString("userlogin_username", username.getText().toString());
                 editor.putString("userlogin_password", password.getText().toString());
+
+                editor.putString("Username", username.getText().toString());
+                editor.putString("Password", password.getText().toString());
+
                 editor.putString("loginfo", "attemptToLogIn");
 
                 editor.commit();
