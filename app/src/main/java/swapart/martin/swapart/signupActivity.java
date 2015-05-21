@@ -25,6 +25,7 @@ public class signupActivity extends Activity {
             @Override
             public void onClick(View v) {
                 signupActivity.this.startActivity(new Intent(signupActivity.this, TermsConditionsActivity.class));
+                overridePendingTransition(R.anim.popup_show, R.anim.popup_hide);
 
             }
         });

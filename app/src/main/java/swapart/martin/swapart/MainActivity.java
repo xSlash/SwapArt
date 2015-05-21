@@ -62,7 +62,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 MainActivity.this.startActivity(new Intent(MainActivity.this, GalleryActivity.class));
-                overridePendingTransition(R.anim.popup_show, R.anim.popup_hide);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
 

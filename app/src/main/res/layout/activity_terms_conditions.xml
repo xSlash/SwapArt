@@ -23,15 +23,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        android:text="By marking the checked box, you hereby agree to SwapArts Terms and Conditions, for using the app. This app is intended for entertainment purposes, and as such will require you to enter data, which will not be sold to third parties. SwapArt inc. are NOT responsible for any loss of data nor crashes of the app, which may affect your phone. Use at your own risk. /nIf you do NOT accept these conditions, please close the app immediatly, and uninstall it, and prevent the use of it any further."
         android:id="@+id/textView5"
         android:layout_below="@+id/textView7"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:scrollbars = "vertical"
-        android:layout_marginTop="40px"
         android:layout_above="@+id/button3"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginTop="50dp" />
 
     <TextView
         android:layout_width="wrap_content"
