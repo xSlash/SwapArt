@@ -30,7 +30,7 @@ public class MatchesListActivity extends Activity {
 
         SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
 
-        int size = prefs.getInt("arrayListSize", 0);
+        int size = prefs.getInt("numberOfMatches", 0);
 
         if (size > 0)
         {
@@ -43,19 +43,33 @@ public class MatchesListActivity extends Activity {
                 String tmpType = prefs.getString("type_"+i, "N/A");
 
                 //Getting image
-                Bitmap tmpBitmap;
+                Bitmap tmpBitmap = null;
 
-                String name = "savedImage" + i + ".jpg";
+                String name = "savedImage1.jpg";
                 try{
                     FileInputStream fis = context.openFileInput(name);
                     Bitmap b = BitmapFactory.decodeStream(fis);
                     fis.close();
                     tmpBitmap = b;
-                    MatchObjectArrayList.add(new MatchObject(b, b, "lol"));
+                    //MatchObjectArrayList.add(new MatchObject(b, b, "lol"));
                 }
                 catch(Exception e){
                     e.printStackTrace();
                 }
+
+                String likedimage = "matchedImage" + i + ".jpg";
+                try{
+                    FileInputStream fis = context.openFileInput(likedimage);
+                    Bitmap b = BitmapFactory.decodeStream(fis);
+                    fis.close();
+                    //tmpBitmap = b;
+                    MatchObjectArrayList.add(new MatchObject(tmpBitmap, b, "lol"));
+                }
+                catch(Exception e){
+                    e.printStackTrace();
+                }
+
+
 
                 listview = (ListView) findViewById(R.id.matchesObjectlistView);
 

@@ -1,5 +1,6 @@
 package swapart.martin.swapart;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Random;
@@ -9,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -46,6 +48,7 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
     private ArrayList<ImageView> likedImageView = new ArrayList<>();
     private ArrayList<Bitmap> likedBitmap = new ArrayList<>();
     private int randnumber;
+    private Bitmap tmpBitmap;
 
     private String currentIMG;
     private int IMGnumber;
@@ -53,6 +56,7 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
 
     private ArrayAdapter<String> arrayAdapter;
     private int i = 9;
+    private int totalmatches;
     private final Context context = this;
 
     @InjectView(R.id.frame) SwipeFlingAdapterView flingContainer;
@@ -64,6 +68,9 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
         setContentView(R.layout.activity_find_art2);
 
         ButterKnife.inject(this);
+
+        SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
+        totalmatches = prefs.getInt("numberOfMatches", 0);
 
         al = new ArrayList<>();
 
@@ -148,44 +155,46 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
             @Override
             public void onRightCardExit(Object dataObject) {
                 //Images the user likes
+                totalmatches++;
 
                 String temp = (String) dataObject;
-                /*likedImagesString.add(temp);
-                ImageView img = (ImageView) findViewById(R.id.billede);
-                likedImageView.add(img);
-                Drawable draw = img.getDrawable();
 
+                Bitmap likedimage = BitmapFactory.decodeResource(context.getResources(), R.drawable.art1 + (randnumber-1));
 
-                Bitmap bitmap = ((BitmapDrawable)img.getDrawable()).getBitmap();
-                likedBitmap.add(bitmap);
-
-                //arrayAdapter.getView(0, R.layout.swipeart_element, getParent());
-
-
-
-                FileOutputStream out = null;
+                String name = "matchedImage" + totalmatches + ".jpg";
+                FileOutputStream out;
                 try {
-                    out = new FileOutputStream("imageyoulike.png");
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, out); // bmp is your Bitmap instance
-                    // PNG is a lossless format, the compression factor (100) is ignored
+                    out = context.openFileOutput(name, Context.MODE_PRIVATE);
+                    likedimage.compress(Bitmap.CompressFormat.JPEG, 90, out);
+                    out.close();
                 } catch (Exception e) {
                     e.printStackTrace();
-                } finally {
-                    try {
-                        if (out != null) {
-                            out.close();
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }*/ //End of try
+                }
+
 
                 SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
                 editor.putInt("likedImageNumber", randnumber);
                 editor.putString("likedImageText", temp);
+                editor.putInt("numberOfMatches", totalmatches);
                 editor.commit();
 
+
+
+
                 makeToast(FindArtActivity.this, "Right!" + " + " + Integer.toString(randnumber));
+
+
+                /*String name = "savedImage1.jpg";
+                try{
+                    FileInputStream fis = context.openFileInput(name);
+                    Bitmap b = BitmapFactory.decodeStream(fis);
+                    fis.close();
+                    tmpBitmap = b;
+
+                }
+                catch(Exception e){
+                    e.printStackTrace();
+                }*/
 
                 startActivity(new Intent(FindArtActivity.this, MatchesActivity.class));
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);

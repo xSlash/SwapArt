@@ -142,7 +142,9 @@ public class GalleryActivity extends Activity {
         findViewById(R.id.matchesButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GalleryActivity.this.startActivity(new Intent(GalleryActivity.this, MatchesActivity.class));
+
+                //GalleryActivity.this.startActivity(new Intent(GalleryActivity.this, MatchesActivity.class));
+                GalleryActivity.this.startActivity(new Intent(GalleryActivity.this, MatchesListActivity.class));
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
