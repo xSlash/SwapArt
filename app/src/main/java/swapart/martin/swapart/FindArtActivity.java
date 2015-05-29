@@ -177,6 +177,7 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
                 editor.putString("likedImageText", temp);
                 editor.putInt("numberOfMatches", totalmatches);
                 editor.commit();
+                //test edit
 
 
 
