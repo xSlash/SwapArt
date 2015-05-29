@@ -38,5 +38,5 @@
         android:src="@drawable/menuicon2"
         android:scaleType="centerInside"
         android:adjustViewBounds="true"
-        android:layout_margin="3dp" />
+        android:layout_margin="6dp" />
 </LinearLayout>

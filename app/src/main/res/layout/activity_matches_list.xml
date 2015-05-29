@@ -1,11 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:layout_height="match_parent"
-    android:id="@+id/galleryRelativeLayout"
     android:orientation="vertical"
-    tools:context="swapart.martin.swapart.GalleryActivity">
+    android:layout_height="match_parent"
+    tools:context="swapart.martin.swapart.MatchesListActivity">
 
     <LinearLayout
         android:id="@+id/headLL"
@@ -21,11 +18,11 @@
             android:background="@drawable/header_buttons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/homeGallery"
+            android:id="@+id/homeMatchesList"
             android:src="@drawable/newhomeicon"
             android:scaleType="centerInside"
             android:adjustViewBounds="true"
-            android:layout_weight="0.10"
+            android:layout_weight="0.1"
             android:layout_margin="6dp" />
 
         <TextView
@@ -34,14 +31,14 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="SwapArt"
             android:id="@+id/textView9"
-            android:gravity="center"
+            android:gravity="center_horizontal|center_vertical"
             android:layout_weight="0.80" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:background="@drawable/header_buttons"
             android:layout_height="wrap_content"
-            android:id="@+id/settingsGallery"
+            android:id="@+id/settingsMatchesList"
             android:layout_weight="0.10"
             android:src="@drawable/menuicon2"
             android:scaleType="centerInside"
@@ -60,27 +57,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Gallery"
+            android:text="Matches"
             android:gravity="center_horizontal"
             android:id="@+id/matchestv"
             android:layout_gravity="center_horizontal"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
-
     </RelativeLayout>
 
     <LinearLayout
 
-        android:layout_weight="0.70"
+        android:layout_weight="0.80"
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_below="@+id/matchestv"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:weightSum="1"
-        android:id="@+id/middleLL"
-        android:layout_above="@+id/lowerLL"
+        android:id="@+id/matchesmiddleLL"
         android:background="@drawable/main_signup_button"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="16dp"
@@ -92,54 +85,9 @@
         <ListView
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
-            android:id="@+id/artObjectlistView"
+            android:id="@+id/matchesObjectlistView"
             android:layout_weight="1"
             android:layout_marginTop="10dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.1"
-        android:layout_below="@+id/old_matches"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/lowerLL"
-        android:weightSum="1"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp">
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="test"
-            android:id="@+id/test_button"
-            android:src="@drawable/cameraicon"
-            android:background="@drawable/main_signup_button"
-
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_weight="0.33" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/findArtButton"
-            android:layout_weight="0.33"
-            android:src="@drawable/searcharticon"
-            android:background="@drawable/main_signup_button"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/matchesButton"
-            android:layout_weight="0.33"
-            android:background="@drawable/main_signup_button"
-            android:src="@drawable/matchicon" />
 
     </LinearLayout>
 
