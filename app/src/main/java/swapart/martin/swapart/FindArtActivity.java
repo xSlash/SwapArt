@@ -159,7 +159,11 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
 
                 String temp = (String) dataObject;
 
-                Bitmap likedimage = BitmapFactory.decodeResource(context.getResources(), R.drawable.art1 + (randnumber-1));
+                SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
+                int artNumber = prefs.getInt("likedNumber", 0);
+
+
+                Bitmap likedimage = BitmapFactory.decodeResource(context.getResources(), R.drawable.art1 + (IMGnumber-1));
 
                 String name = "matchedImage" + totalmatches + ".jpg";
                 FileOutputStream out;
@@ -171,8 +175,8 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
                     e.printStackTrace();
                 }
 
-
                 SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
+
                 editor.putInt("likedImageNumber", randnumber);
                 editor.putString("likedImageText", temp);
                 editor.putInt("numberOfMatches", totalmatches);
