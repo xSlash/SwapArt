@@ -15,6 +15,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.util.Pair;
 import android.view.Menu;
@@ -177,6 +178,9 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
 
                 SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
 
+                String timestamp = (DateFormat.format("dd-MM-yyyy hh:mm:ss", new java.util.Date()).toString());
+
+                editor.putString("timestamp_" + totalmatches, timestamp);
                 editor.putInt("likedImageNumber", randnumber);
                 editor.putString("likedImageText", temp);
                 editor.putInt("numberOfMatches", totalmatches);

@@ -41,6 +41,7 @@ public class MatchesListActivity extends Activity {
                 String tmpYear = prefs.getString("year_"+i, "N/A");
                 String tmpDimension = prefs.getString("dimension_"+i, "N/A");
                 String tmpType = prefs.getString("type_"+i, "N/A");
+                String timestamp = prefs.getString("timestamp_"+i, "N/A");
 
                 //Getting image
                 Bitmap tmpBitmap = null;
@@ -63,7 +64,7 @@ public class MatchesListActivity extends Activity {
                     Bitmap b = BitmapFactory.decodeStream(fis);
                     fis.close();
                     //tmpBitmap = b;
-                    MatchObjectArrayList.add(new MatchObject(tmpBitmap, b, "lol"));
+                    MatchObjectArrayList.add(new MatchObject(tmpBitmap, b, timestamp));
                 }
                 catch(Exception e){
                     e.printStackTrace();
