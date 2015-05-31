@@ -2,6 +2,7 @@ package swapart.martin.swapart;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,7 +10,11 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.util.ArrayList;
@@ -31,6 +36,16 @@ public class MatchesListActivity extends Activity {
         SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
 
         int size = prefs.getInt("numberOfMatches", 0);
+        /*boolean justfoundmatch = prefs.getBoolean("justfoundmatch", false);
+
+        if (justfoundmatch) {
+            SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
+            editor.putBoolean("justfoundmatch", false);
+            editor.commit();
+
+            startActivity(new Intent(MatchesListActivity.this, MatchesActivity.class));
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        }*/
 
         if (size > 0)
         {
@@ -76,10 +91,44 @@ public class MatchesListActivity extends Activity {
 
                 listview.setAdapter(new MatchObjectAdapter(MatchesListActivity.this, MatchObjectArrayList));
 
+                listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position,
+                                            long id) {
+
+                        SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
+                        int imgnum = prefs.getInt("imgnumber_"+(position+1), 0);
+
+                        SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
+                        editor.putInt("likedNumber", imgnum);
+                        editor.commit();
+
+                        startActivity(new Intent(MatchesListActivity.this, MatchesActivity.class));
+                        //finish();
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
+                        //likednumber
+
+                        //String item = ((TextView)view).getText().toString();
+
+                        //Toast.makeText(getBaseContext(), item, Toast.LENGTH_LONG).show();
+
+                    }
+                });
+
                 //listview.setAdapter(new MatchObjectAdapter(MatchesListActivity.this, MatchObjectArrayList));
 
             }
         }
+
+        findViewById(R.id.homeMatchesList).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MatchesListActivity.this, GalleryActivity.class));
+                finish();
+                overridePendingTransition(R.anim.popup_show, R.anim.popup_hide);
+            }
+        });
     }
 
 

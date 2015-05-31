@@ -7,8 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Pair;
@@ -22,10 +20,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 import swapart.martin.swapartmockup.R;
 
@@ -51,6 +46,9 @@ public class MatchesActivity extends Activity {
         liked_image.setImageResource(R.drawable.art1 + (artNumber-1));
 
 
+
+
+
         String name = "savedImage1.jpg";
         try{
             FileInputStream fis = context.openFileInput(name);
@@ -67,7 +65,27 @@ public class MatchesActivity extends Activity {
         ImageView own_image = (ImageView) findViewById(R.id.matches_own_picture);
         own_image.setImageBitmap(tmpBitmap);
 
-        findViewById(R.id.chatButton).setOnClickListener(new View.OnClickListener() {
+
+
+
+
+        findViewById(R.id.matches_goto_matchlist).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MatchesActivity.this, MatchesListActivity.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            }
+        });
+
+        findViewById(R.id.matches_searchart).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MatchesActivity.this, FindArtActivity.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            }
+        });
+
+        findViewById(R.id.matches_chatButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String number = "12345678";
@@ -75,10 +93,12 @@ public class MatchesActivity extends Activity {
             }
         });
 
+
+
         findViewById(R.id.homeMatches).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //MatchesActivity.this.startActivity(new Intent(MatchesActivity.this, GalleryActivity.class));
+                startActivity(new Intent(MatchesActivity.this, GalleryActivity.class));
                 finish();
                 overridePendingTransition(R.anim.popup_show, R.anim.popup_hide);
             }
