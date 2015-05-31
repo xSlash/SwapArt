@@ -36,6 +36,7 @@ public class MatchesListActivity extends Activity {
         SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
 
         int size = prefs.getInt("numberOfMatches", 0);
+
         /*boolean justfoundmatch = prefs.getBoolean("justfoundmatch", false);
 
         if (justfoundmatch) {
@@ -61,7 +62,9 @@ public class MatchesListActivity extends Activity {
                 //Getting image
                 Bitmap tmpBitmap = null;
 
-                String name = "savedImage1.jpg";
+                int userimgnumber = prefs.getInt("ownimgnumber_"+i ,0);
+
+                String name = "savedImage" + userimgnumber + ".jpg";
                 try{
                     FileInputStream fis = context.openFileInput(name);
                     Bitmap b = BitmapFactory.decodeStream(fis);
@@ -98,9 +101,12 @@ public class MatchesListActivity extends Activity {
 
                         SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
                         int imgnum = prefs.getInt("imgnumber_"+(position+1), 0);
+                        int imgown = prefs.getInt("ownimgnumber_"+(position+1), 0);
+
 
                         SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
                         editor.putInt("likedNumber", imgnum);
+                        editor.putInt("numberformatchactivity", imgown);
                         editor.commit();
 
                         startActivity(new Intent(MatchesListActivity.this, MatchesActivity.class));

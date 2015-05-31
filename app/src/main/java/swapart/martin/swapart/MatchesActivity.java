@@ -47,9 +47,9 @@ public class MatchesActivity extends Activity {
 
 
 
+        int ownimgnumber = prefs.getInt("numberformatchactivity", 1);
 
-
-        String name = "savedImage1.jpg";
+        String name = "savedImage" + ownimgnumber + ".jpg";
         try{
             FileInputStream fis = context.openFileInput(name);
             Bitmap b = BitmapFactory.decodeStream(fis);

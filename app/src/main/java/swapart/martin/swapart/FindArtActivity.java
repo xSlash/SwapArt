@@ -59,6 +59,7 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
     private int i = 9;
     private int totalmatches;
     private final Context context = this;
+    private int gallerysize = 0;
 
     @InjectView(R.id.frame) SwipeFlingAdapterView flingContainer;
 
@@ -72,6 +73,7 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
 
         SharedPreferences prefs = getSharedPreferences("User_Object", MODE_PRIVATE);
         totalmatches = prefs.getInt("numberOfMatches", 0);
+        gallerysize = prefs.getInt("arrayListSize", 0);
 
         al = new ArrayList<>();
 
@@ -178,6 +180,10 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
                     e.printStackTrace();
                 }
 
+                Random r = new Random();
+                int randomnumber = r.nextInt(gallerysize) + 1;
+
+
                 SharedPreferences.Editor editor = getSharedPreferences("User_Object", MODE_PRIVATE).edit();
 
                 String timestamp = (DateFormat.format("dd-MM-yyyy HH:mm:ss", new java.util.Date()).toString());
@@ -187,8 +193,9 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
                 editor.putString("likedImageText", temp);
                 editor.putInt("numberOfMatches", totalmatches);
                 editor.putInt("imgnumber_" + totalmatches, IMGnumber);
-                //editor.putInt("ownimgnumber_" + totalmatches, 2);
-                //editor.putBoolean("justfoundmatch", true);
+                editor.putInt("ownimgnumber_" + totalmatches, randomnumber);
+                editor.putInt("numberformatchactivity", randomnumber);
+
                 editor.commit();
                 //test edit
 
