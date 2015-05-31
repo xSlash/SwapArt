@@ -150,7 +150,9 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
                 //You also have access to the original object.
                 //If you want to use it just cast it (String) dataObject
                 //Toast.makeText(FindArt.this, "Left!", Toast.LENGTH_LONG).show();
-                makeToast(FindArtActivity.this, "Left!");
+
+                //Indicates the user swiped left.
+                //makeToast(FindArtActivity.this, "Left!");
             }
 
             @Override
@@ -185,6 +187,7 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
                 editor.putString("likedImageText", temp);
                 editor.putInt("numberOfMatches", totalmatches);
                 editor.putInt("imgnumber_" + totalmatches, IMGnumber);
+                //editor.putInt("ownimgnumber_" + totalmatches, 2);
                 //editor.putBoolean("justfoundmatch", true);
                 editor.commit();
                 //test edit
@@ -192,7 +195,7 @@ public class FindArtActivity extends Activity implements SeekBar.OnSeekBarChange
 
 
 
-                makeToast(FindArtActivity.this, "Right!" + " + " + Integer.toString(randnumber));
+                //makeToast(FindArtActivity.this, "Right!" + " + " + Integer.toString(randnumber));
 
 
                 /*String name = "savedImage1.jpg";

@@ -477,7 +477,7 @@ public class GalleryActivity extends Activity {
                     editor.commit();
 
 
-                    Toast.makeText(context, "ArtObject count: " + ArtObjectArrayList.size() + ".", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(context, "ArtObject count: " + ArtObjectArrayList.size() + ".", Toast.LENGTH_LONG).show();
 
                     dialog.dismiss();
 
