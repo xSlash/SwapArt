@@ -143,6 +143,23 @@ public class MatchesListActivity extends Activity {
             }
         });
 
+        findViewById(R.id.matcheslist_gallery).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MatchesListActivity.this, GalleryActivity.class));
+                finish();
+                overridePendingTransition(R.anim.popup_show, R.anim.popup_hide);
+            }
+        });
+
+        findViewById(R.id.matcheslist_findart).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MatchesListActivity.this, FindArtActivity.class));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            }
+        });
+
         findViewById(R.id.settingsMatchesList).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -366,6 +383,12 @@ public class MatchesListActivity extends Activity {
                 dialog.show();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.popup_show, R.anim.popup_hide);
     }
 
 

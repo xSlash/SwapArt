@@ -148,7 +148,7 @@
             android:text="New Button"
             android:id="@+id/matches_goto_matchlist"
             android:background="@drawable/main_signup_button"
-            android:src="@drawable/matchlisticon" />
+            android:src="@drawable/matchicon" />
 
         <ImageButton
             android:layout_width="0dp"
