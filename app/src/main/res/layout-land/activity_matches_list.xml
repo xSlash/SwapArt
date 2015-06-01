@@ -1,0 +1,94 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="swapart.martin.swapart.MatchesListActivity">
+
+    <LinearLayout
+        android:id="@+id/headLL"
+        android:orientation="horizontal"
+        android:layout_gravity="top"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:weightSum="1"
+        android:layout_weight="0.15"
+        android:background="@drawable/header_styling">
+
+        <ImageButton
+            android:background="@drawable/header_buttons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/homeMatchesList"
+            android:src="@drawable/newhomeicon"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:layout_weight="0.1"
+            android:layout_margin="6dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="SwapArt"
+            android:id="@+id/textView9"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_weight="0.80" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:background="@drawable/header_buttons"
+            android:layout_height="wrap_content"
+            android:id="@+id/settingsMatchesList"
+            android:layout_weight="0.10"
+            android:src="@drawable/menuicon2"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:layout_margin="6dp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.15">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Matches"
+            android:gravity="center_horizontal"
+            android:id="@+id/matchestv"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+    <LinearLayout
+
+        android:layout_weight="0.75"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_below="@+id/matchestv"
+        android:weightSum="1"
+        android:id="@+id/matchesmiddleLL"
+        android:background="@drawable/main_signup_button"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp">
+
+
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/matchesObjectlistView"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
